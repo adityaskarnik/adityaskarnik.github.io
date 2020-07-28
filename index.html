@@ -41,7 +41,7 @@
             font-size: 320%;
             width: 100%;
             height: auto;
-            text-align: left;
+            text-align: center;
             color: #ffc602;
         }
         * {
@@ -132,12 +132,12 @@
       <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
       <header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky">
         <div class="container px-0 px-xl-3">
-          <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu"><span class="navbar-toggler-icon"></span></button><a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="index.html"><p class="logo-text">aditya karnik</p>
-          <div class="d-flex align-items-center order-lg-3 ml-lg-auto"><a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span></a></div>
-          <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
-            <div class="cs-offcanvas-cap navbar-box-shadow">
-              <h5 class="mt-1 mb-0">Menu</h5>
-              <button class="close lead" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu"><span aria-hidden="true">×</span></button>
+          <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="#top">
+            <p class="logo-text">aditya karnik</p>
+            <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
+              <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
+              </a>
             </div>
           </div>
         </div>
@@ -147,6 +147,25 @@
       <section class="position-relative bg-dark overflow-hidden pt-7 pb-lg-7">
         <div class="container-fluid pt-4 pb-5 pt-lg-5">
           <div class="row align-items-center py-3">
+            <div class="col-xl-6 col-lg-5 d-flex justify-content-end">
+              <div class="pt-2 pb-3 pb-lg-0 mx-auto mb-5 mb-lg-0 ml-lg-0 mr-xl-7 text-center text-lg-left" style="max-width: 495px;">
+                <h1 class="display-4 text-light pb-2">Aditya Karnik</h1>
+                <p class="h4 font-weight-light text-light opacity-70 line-height-base">I'm a passionate self-taught (not sure, sometimes Frontend, sometimes Backend) developer from India. I work as a Senior Engineer, passionate about building something big, open-source.</p>
+                <p class="h3 font-weight-bold text-light line-height-base">Recent Writings:</p>
+                <a class="d-inline-flex align-items-center text-decoration-none pt-1 mt-1 mb-1" href="https://github.com/adityaskarnik/chatbot/blob/master/README.md" data-scroll="">
+                  ChatBot
+                </a>
+                <br>
+                <a class="d-inline-flex align-items-center text-decoration-none pt-1 mt-1 mb-1" href="https://github.com/adityaskarnik/docker_commands/blob/master/README.md" data-scroll="">
+                  Docker Commands
+                </a>
+                <br>
+                <a class="d-inline-flex align-items-center text-decoration-none pt-1 mt-1 mb-4" href="https://github.com/adityaskarnik/expense_app/wiki/ELK" data-scroll="">
+                  ELK (Elastic Search Kibana)
+                </a>
+                <hr class="hr-light mb-5">
+              </div>
+            </div>
             <div class="col-xl-6 col-lg-7">
               <div class="cs-parallax" style="max-width: 898px; transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; pointer-events: none;">
                 <div class="cs-parallax-layer position-relative" data-depth="0.1" style="transform: translate3d(2.4px, 1.4px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;"><img src="image/parallax/layer01.png" alt="Layer">
@@ -177,11 +196,6 @@
             </div>
           </div>
         </div>
-        <div class="cs-shape cs-shape-bottom cs-shape-curve bg-secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
-            <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
-          </svg>
-        </div>
       </section>
       <!-- Inner Pages-->
       
@@ -189,13 +203,16 @@
     <footer class="cs-footer bg-dark pt-5 pt-md-6 pt-lg-7">
       <div class="container pt-3 pt-md-0">
         <div class="pb-md-4 text-center">
-          <h3 class="text-light font-weight-light mb-3">Need to talk?</h3>
-          <h2 class="text-light mb-5">Reach out to me:</h2>
+          <h3 class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</h3>
+          <h4 class="text-light font-weight-light mb-3">Need to talk?</h4>
+          <h3 class="text-light mb-5">Reach out to me:</h3>
           <a class="btn btn-primary" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
           &nbsp;
           <a class="btn btn-primary" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
           &nbsp;
           <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+          &nbsp;
+          <a class="btn btn-primary" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener"><i class="fa fa-envelope" aria-hidden="true"></i> Mail</a>
         </div>
         <hr class="hr-light my-5 pb-md-4">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfJYTNluPN0bktfLh7g7us61j0Xm94-fTexpewUkpW3CQiEiA/viewform?embedded=true" width="1200px" height="1500px" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" scroll="no" overflow="hidden">Loading…</iframe>
