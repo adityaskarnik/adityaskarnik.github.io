@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Aditya Karnik</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Aditya Karnik - A Showcase of things">
+    <meta name="keywords" content="profile, landing page, portfolio, name, homepage, resume">
+    <meta name="author" content="Aditya Karnik">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Ubuntu -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="assets/font/Marvelous-Script-Demo.otf" rel="stylesheet">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="assets/images/logo/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        @font-face {
+            font-family: Marvelous-Script-Demo;
+            src:url("assets\\font\\Marvelous-Script-Demo.otf");
+        }
+        .logo-text {
+            font-family: Marvelous-Script-Demo;
+            font-size: 320%;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            color: #ffc602;
+        }
+        * {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .cs-page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+        }
+        .cs-page-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cs-page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 0;
+        }
+        .cs-page-loading.active > .cs-page-loading-inner {
+            opacity: 1;
+        }
+        .cs-page-loading-inner > span {
+            display: block;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #737491;
+        }
+        .cs-page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            border: .15em solid #766df4;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        @keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        iframe {
+            overflow:hidden;
+        }
+    </style>
+    <script src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="assets/css/simplebar.min.css">
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+    <!-- Google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-173927461-1');
+    </script>
+
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <main class="cs-page-wrapper">
+      <!-- Navbar Floating light for Index page only-->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+      <header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky">
+        <div class="container px-0 px-xl-3">
+          <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
+            <p class="logo-text">aditya karnik</p>
+            <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
+              <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Page content-->
+      <section class="border-top" id="map">
+        <div class="row no-gutters cs-gallery" lg-uid="lg0"><a class="col-lg-6 cs-gallery-item cs-map-popup d-flex flex-columnt justify-content-center align-items-center bg-position-center bg-size-cover py-7 text-center" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91476818218!2d-74.11976253858133!3d40.69740344296443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sua!4v1568574342685!5m2!1sen!2sua" data-iframe="true" data-sub-html="<h6 class=&quot;font-size-sm text-light&quot;>396 Lillian Blvd, Holbrook, NY 11741</h6>" style="background-image:url(img/pages/contacts/map02.jpg);"><span class="cs-gallery-caption"><i class="fe-maximize-2 font-size-xl mt-n1 mr-2"></i>Expand the map</span>
+            <div class="d-inline-block py-4 py-md-6"><img width="48" src="img/pages/contacts/marker.png" alt="Map marker">
+            </div></a>
+          <div class="col-lg-6 px-3 px-lg-5">
+            <div class="pt-5 pb-6 pt-md-6 mx-auto" style="max-width: 720px;">
+              <h2 class="h3 pb-4">Drop us a line</h2>
+              <form class="needs-validation row" novalidate="">
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-fn">Full name<sup class="text-danger ml-1">*</sup></label>
+                  <input class="form-control" type="text" id="cont-fn" placeholder="John Doe" required="">
+                  <div class="invalid-feedback">Please enter your full name!</div>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-email">Email address<sup class="text-danger ml-1">*</sup></label>
+                  <input class="form-control" type="email" id="cont-email" placeholder="j.doe@example.com" required="">
+                  <div class="invalid-feedback">Please enter a valid email address!</div>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-phone">Phone number</label>
+                  <input class="form-control bg-image-0" type="text" id="cont-phone" data-format="custom" data-delimiter="-" data-blocks="2 4 2 2" placeholder="00-0000-00-00">
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-subject">Subject</label>
+                  <input class="form-control bg-image-0" type="text" id="cont-subject" placeholder="Title of your message">
+                </div>
+                <div class="col-12 form-group">
+                  <label class="form-label" for="cont-message">Message<sup class="text-danger ml-1">*</sup></label>
+                  <textarea class="form-control" id="cont-message" rows="4" placeholder="Write your message here" required=""></textarea>
+                  <div class="invalid-feedback">Please write a message!</div>
+                </div>
+                <div class="col-12 pt-2">
+                  <button class="btn btn-primary" type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="position-relative bg-light overflow-hidden pt-7 pb-lg-7">
+        <div class="row no-gutters cs-gallery" lg-uid="lg0"><a class="col-lg-6 cs-gallery-item cs-map-popup d-flex flex-columnt justify-content-center align-items-center bg-position-center bg-size-cover py-7 text-center" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91476818218!2d-74.11976253858133!3d40.69740344296443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sua!4v1568574342685!5m2!1sen!2sua" data-iframe="true" data-sub-html="<h6 class=&quot;font-size-sm text-light&quot;>396 Lillian Blvd, Holbrook, NY 11741</h6>" style="background-image:url(assets/images/maps_bangalore.png);"><span class="cs-gallery-caption"><i class="fe-maximize-2 font-size-xl mt-n1 mr-2"></i>Expand the map</span>
+            <div class="d-inline-block py-4 py-md-6"><img width="48" src="assets/images/marker.png" alt="Map marker">
+            </div></a>
+          <div class="col-lg-6 px-3 px-lg-5">
+            <div class="pt-5 pb-6 pt-md-6 mx-auto" style="max-width: 720px;">
+              <h2 class="h3 pb-4">Drop me a line</h2>
+              <form class="needs-validation row" novalidate="">
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-fn">Full name<sup class="text-danger ml-1">*</sup></label>
+                  <input class="form-control" type="text" id="cont-fn" placeholder="John Doe" required="">
+                  <div class="invalid-feedback">Please enter your full name!</div>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-email">Email address<sup class="text-danger ml-1">*</sup></label>
+                  <input class="form-control" type="email" id="cont-email" placeholder="j.doe@example.com" required="">
+                  <div class="invalid-feedback">Please enter a valid email address!</div>
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-phone">Phone number</label>
+                  <input class="form-control bg-image-0" type="text" id="cont-phone" data-format="custom" data-delimiter="-" data-blocks="2 4 2 2" placeholder="00-0000-00-00">
+                </div>
+                <div class="col-sm-6 form-group">
+                  <label class="form-label" for="cont-subject">Subject</label>
+                  <input class="form-control bg-image-0" type="text" id="cont-subject" placeholder="Title of your message">
+                </div>
+                <div class="col-12 form-group">
+                  <label class="form-label" for="cont-message">Message<sup class="text-danger ml-1">*</sup></label>
+                  <textarea class="form-control" id="cont-message" rows="4" placeholder="Write your message here" required=""></textarea>
+                  <div class="invalid-feedback">Please write a message!</div>
+                </div>
+                <div class="col-12 pt-2">
+                  <button class="btn btn-primary" type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Inner Pages-->
+      
+    </main>
+    <footer class="cs-footer bg-dark pt-5 pt-md-6 pt-lg-7">
+      <div class="container pt-3 pt-md-0">
+        <div class="pb-md-4 text-center">
+          <h3 class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</h3>
+          <h4 class="text-light font-weight-light mb-3">Need to talk?</h4>
+          <h3 class="text-light mb-5">Reach out to me:</h3>
+          <a class="btn btn-primary" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          &nbsp;
+          <a class="btn btn-primary" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+          &nbsp;
+          <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+          &nbsp;
+          <a class="btn btn-primary" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener"><i class="fa fa-envelope" aria-hidden="true"></i> Mail</a>
+        </div>
+        <hr class="hr-light my-5 pb-md-4">
+        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Take a survey?</span><b><u><a href="/survey" target="_blank" rel="noopener">Let me know</a></u></b></p>
+        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Interested to talk to me?</span><b><u><a href="#" target="_blank" rel="noopener">Send me a message</a></u></b></p>
+        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Want to Support my Work?</span><b><u><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></u></b></p>
+        <hr class="hr-light mt-5 pb-4">
+        <p class="font-size-sm text-center mb-4 py-3"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityaskarnik.github.io/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+      </div>
+    </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-custom-file-input.min.js"></script>
+    <script src="assets/js/simplebar.min.js"></script>
+    <script src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+    <!-- Main theme script-->
+    <script src="assets/js/theme.min.js"></script>
+
+    <div class="lg-backdrop in" style="transition-duration: 150ms;">
+    </div>
+    <div class="lg-outer lg-start-zoom lg-use-css3 lg-css3 lg-slide lg-show-after-load lg-visible lg-hide-items">
+        <div class="lg" style="width:100%; height:100%">
+            <div class="lg-inner" style="transition-timing-function: ease; transition-duration: 600ms;">
+                <div class="lg-item lg-loaded lg-current lg-complete">
+                    <div class="lg-video-cont" style="max-width:100%">
+                        <div class="lg-video">
+                            <iframe class="lg-object" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497723.7995012525!2d77.30163704012101!3d12.941929776791872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16440acd0efd%3A0x58f093efec8f6c9f!2sBangalore%20Urban%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1596801931496!5m2!1sen!2sin" allowfullscreen="true"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg-toolbar group">
+                <span class="lg-close lg-icon"></span>
+                <div id="lg-counter">
+                    <span id="lg-counter-current">1</span> / <span id="lg-counter-all">1</span>
+                </div>
+            </div>
+            <div class="lg-sub-html">
+                <h6 class="font-size-sm text-light">396 Lillian Blvd, Holbrook, NY 11741</h6>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
