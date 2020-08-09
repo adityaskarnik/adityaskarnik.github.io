@@ -175,7 +175,7 @@
           <div class="row">
             <div class="col-lg-6 col-md-7 offset-lg-1 pb-2 mb-5" style="margin-top: -260px;">
               <div class="card border-0 box-shadow-lg">
-                <form class="card-body needs-validation p-5" novalidate="">
+                <form class="card-body needs-validation p-5" novalidate="" action="http://127.0.0.1:5000/create_post/" method="POST" id="post-form">
                   <div class="form-group">
                     <label class="form-label" for="cont-fn">Full name<sup class="text-danger ml-1">*</sup></label>
                     <input class="form-control" type="text" id="cont-fn" placeholder="John Doe" required="">
@@ -258,6 +258,25 @@
     <script src="assets/js/cleave.min.js"></script>
     <!-- Main theme script-->
     <script src="assets/js/theme.min.js"></script>
-
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" >
+        // Submit post on submit
+        $('#post-form').on('submit', function(event){
+            event.preventDefault();
+            console.log("form submitted!")  // sanity check
+            create_post();
+        });
+        function create_post() {
+            console.log("create post is working!") // sanity check
+            // $.post( 'http://127.0.01:8000/submit_form/', {'data' : 'abc'})
+            $.ajax({
+            method: "POST",
+            url: 'http://127.0.01:8000/submit_form/',
+            data: JSON.stringify($("#post-form").serializeArray()),
+            dataType: 'jsonp',
+            crossDomain: true,
+          });
+        };
+    </script>
   </body>
 </html>
