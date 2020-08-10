@@ -270,14 +270,18 @@
             console.log("create post is working!") // sanity check
             // $.post( 'http://127.0.01:8000/submit_form/', {'data' : 'abc'})
             $.ajax({
-              type: "POST",
-              url: 'http://125.17.166.115:8000/submit_form/',
+              url: 'http://127.0.0.1:8000/submit_form/',
+              crossOrigin: true,
+              headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+              },
+              method: "POST",
+              dataType: 'json',
               data: {
                   'startdate': 'start',
                   'enddate' : 'end'
               },
-              dataType: 'json',
-              crossDomain: true,
               success: function (data) {
                   console.log('success')
               }
