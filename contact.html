@@ -119,7 +119,7 @@
             overflow:hidden;
         }
     </style>
-    <script src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <script src="assets/js/fontawesome.js"></script>
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="assets/css/simplebar.min.css">
     <!-- Main Theme Styles + Bootstrap-->
@@ -270,12 +270,18 @@
             console.log("create post is working!") // sanity check
             // $.post( 'http://127.0.01:8000/submit_form/', {'data' : 'abc'})
             $.ajax({
-            method: "POST",
-            url: 'http://127.0.01:8000/submit_form/',
-            data: JSON.stringify($("#post-form").serializeArray()),
-            dataType: 'jsonp',
-            crossDomain: true,
-          });
+              type: "POST",
+              url: 'http://125.17.166.115:8000/submit_form/',
+              data: {
+                  'startdate': 'start',
+                  'enddate' : 'end'
+              },
+              dataType: 'json',
+              crossDomain: true,
+              success: function (data) {
+                  console.log('success')
+              }
+            });
         };
     </script>
   </body>
