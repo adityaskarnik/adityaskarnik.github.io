@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Aditya Karnik</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Aditya Karnik - A Showcase of things">
+    <meta name="keywords" content="profile, landing page, portfolio, name, homepage, resume">
+    <meta name="author" content="Aditya Karnik">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Ubuntu -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="assets/font/Marvelous-Script-Demo.otf" rel="stylesheet">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="assets/images/logo/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        @font-face {
+            font-family: Marvelous-Script-Demo;
+            src:url("assets\\font\\Marvelous-Script-Demo.otf");
+        }
+        .logo-text {
+            font-family: Marvelous-Script-Demo;
+            font-size: 320%;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            color: #ffc602;
+        }
+        * {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .cs-page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+        }
+        .cs-page-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cs-page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 0;
+        }
+        .cs-page-loading.active > .cs-page-loading-inner {
+            opacity: 1;
+        }
+        .cs-page-loading-inner > span {
+            display: block;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #737491;
+        }
+        .cs-page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            border: .15em solid #766df4;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        @keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        iframe {
+            overflow:hidden;
+        }
+    </style>
+    <script src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <script src="https://kit.fontawesome.com/a96b4ea7ab.js" crossorigin="anonymous"></script>
+    <!-- Google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-173927461-1');
+    </script>
+    <!-- Page loading styles-->
+    <style>
+      .cs-page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .cs-page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .cs-page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .cs-page-loading.active > .cs-page-loading-inner {
+        opacity: 1;
+      }
+      .cs-page-loading-inner > span {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #737491;
+      }
+      .cs-page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #766df4;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+    <!-- Page loading scripts-->
+    <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-WKV3GT5"></script><script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.cs-page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="assets/css/simplebar.min.css">
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <main class="cs-page-wrapper">
+      <!-- Navbar Floating light for Index page only-->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+      <header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky">
+        <div class="container px-0 px-xl-3">
+          <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
+            <p class="logo-text">aditya karnik</p>
+            <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
+              <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Page content-->
+      <section class="position-relative bg-dark overflow-hidden pt-7 pb-lg-7">
+        <div class="container py-4 mb-2 mb-sm-0 pb-sm-5">
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+                <nav aria-label="text-light md-5 breadcrumb">
+                    <ol class="text-light md-5 breadcrumb">
+                    <li class="text-light md-5 breadcrumb-item"><a href="#">Home </a></li>
+                    &nbsp;<li class="text-light md-5"> <i class="fas fa-chevron-right"> </i> Blog</li>
+                    </ol>
+                  </nav>
+                <h1 class="text-light mb-5">Blog</h1>
+                <!-- Post-->
+                <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top" href="blog-single-ns.html" style="background-image: url(assets/images/exception_notifier_screenshot.png);"></a>
+                  <div class="card-body"><a class="meta-link font-size-sm mb-2" href="#">Python Titbits</a>
+                    <h2 class="h4 nav-heading mb-4"><a href="blog-single-ns.html">Exception Notifier</a></h2><a class="media meta-link font-size-sm align-items-center pt-3" href="#"><img class="rounded-circle" width="36" src="https://avatars2.githubusercontent.com/u/11070736?s=400&u=79992d939a9dec4b26434384d157032529a6ac3a&v=4" alt="Aditya Karnik">
+                      <div class="media-body pl-2 ml-1 mt-n1">by<span class="font-weight-semibold ml-1">Aditya Karnik</span></div></a>
+                    <div class="mt-3 text-right text-nowrap"><span class="meta-divider"></span><a class="meta-link font-size-xs"><i class="fas fa-calendar mr-1 mt-n1"></i>&nbsp;Sep 8</a></div>
+                  </div>
+                </article>
+                
+              </div>
+            </div>
+          </div>
+      </section>
+      <!-- Inner Pages-->
+      
+    </main>
+    <footer class="cs-footer bg-dark pt-5 pt-md-6 pt-lg-7">
+      <div class="container pt-3 pt-md-0">
+        <div class="pb-md-4 text-center">
+          <h3 class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</h3>
+          <h4 class="text-light font-weight-light mb-3">Need to talk?</h4>
+          <h3 class="text-light mb-5">Reach out to me:</h3>
+          <a class="btn btn-primary" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+          &nbsp;
+          <a class="btn btn-primary" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+          &nbsp;
+          <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+          &nbsp;
+          <a class="btn btn-primary" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener"><i class="fa fa-envelope" aria-hidden="true"></i> Mail</a>
+        </div>
+        <hr class="hr-light my-5 pb-md-4">
+        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Take a survey?</span><b><u><a href="/survey" target="_blank" rel="noopener">Let me know</a></u></b></p>
+        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Interested to talk to me?</span><b><u><a href="#" target="_blank" rel="noopener">Send me a message</a></u></b></p>
+        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Want to Support my Work?</span><b><u><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></u></b></p>
+        <hr class="hr-light mt-5 pb-4">
+        <p class="font-size-sm text-center mb-4 py-3"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+      </div>
+    </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-custom-file-input.min.js"></script>
+    <script src="assets/js/simplebar.min.js"></script>
+    <script src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/shuffle.min.js"></script>
+    <!-- Main theme script-->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
