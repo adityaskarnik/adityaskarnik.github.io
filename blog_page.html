@@ -44,6 +44,14 @@
             text-align: center;
             color: #ffc602;
         }
+        .logo-text-dark {
+            font-family: Marvelous-Script-Demo;
+            font-size: 220%;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            color: #4a4b65;
+        }
         * {
             font-family: 'Ubuntu', sans-serif;
         }
@@ -224,30 +232,48 @@
     <main class="cs-page-wrapper">
       <!-- Navbar Floating light for Index page only-->
       <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
-      <header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky">
+      
+      <header class="cs-header navbar navbar-expand-lg navbar-light bg-light navbar-box-shadow navbar-sticky" data-scroll-header="">
         <div class="container px-0 px-xl-3">
+          <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
-            <p class="logo-text">aditya karnik</p>
+            <img class="d-none d-lg-block" width="153" src="assets/images/logo-dark.png" alt="aditya karnik">
+            <img class="d-lg-none" width="58" src="assets/images/logo-icon.png" alt="aditya karnik">
             <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
-              <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+              <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
                 <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
               </a>
+            </div>
+            <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
+              <div class="cs-offcanvas-cap navbar-box-shadow">
+                <h5 class="mt-1 mb-0">Menu</h5>
+                <button class="close lead" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu"><span aria-hidden="true">×</span></button>
+              </div>
+              <div class="cs-offcanvas-body">
+                <!-- Menu-->
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="/" >Home</a></li>
+                  <li class="nav-item dropdown dropdown-mega active"><a class="nav-link dropdown-toggle" href="/blog_page">Blog</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </header>
       <!-- Page content-->
-      <section class="position-relative bg-dark overflow-hidden pt-7 pb-lg-7">
+      <section class="position-relative bg-light overflow-hidden pt-4 pb-lg-4">
         <div class="container py-4 mb-2 mb-sm-0 pb-sm-5">
             <div class="row justify-content-center">
               <div class="col-lg-9">
                 <nav aria-label="text-light md-5 breadcrumb">
                     <ol class="text-light md-5 breadcrumb">
-                    <li class="text-light md-5 breadcrumb-item"><a href="#">Home </a></li>
-                    &nbsp;<li class="text-light md-5"> <i class="fas fa-chevron-right"> </i> Blog</li>
+                    <li class="text-dark md-5 breadcrumb-item"><a href="/">Home </a></li>
+                    &nbsp;&nbsp;&nbsp;<li class="meta-link font-size-sm mb-2"> <i class="fas fa-chevron-right"> </i>&nbsp;&nbsp;&nbsp;Blog</li>
                     </ol>
                   </nav>
-                <h1 class="text-light mb-5">Blog</h1>
+                <h1 class="text-dark mb-5">Blog</h1>
                 <!-- Post-->
                 <article class="card card-horizontal card-hover mb-grid-gutter"><a class="card-img-top" href="blog-single-ns.html" style="background-image: url(assets/images/exception_notifier_screenshot.png);"></a>
                   <div class="card-body"><a class="meta-link font-size-sm mb-2" href="#">Python Titbits</a>
@@ -264,26 +290,34 @@
       <!-- Inner Pages-->
       
     </main>
-    <footer class="cs-footer bg-dark pt-5 pt-md-6 pt-lg-7">
+    <footer class="cs-footer bg-dark pt-5 pt-md-6">
       <div class="container pt-3 pt-md-0">
-        <div class="pb-md-4 text-center">
-          <h3 class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</h3>
-          <h4 class="text-light font-weight-light mb-3">Need to talk?</h4>
-          <h3 class="text-light mb-5">Reach out to me:</h3>
-          <a class="btn btn-primary" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-          &nbsp;
-          <a class="btn btn-primary" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
-          &nbsp;
-          <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
-          &nbsp;
-          <a class="btn btn-primary" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener"><i class="fa fa-envelope" aria-hidden="true"></i> Mail</a>
+        <div class="row pb-3">
+          <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4"><a class="d-block mb-3" href="/" style="width: 153px;"><img src="assets/images/logo.png" alt="adityakarnik"></a>
+            <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+              <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://instagram.com/adityakarnik" target="_blank" rel="noopener">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <hr class="hr-light my-5 pb-md-4">
-        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Take a survey?</span><b><u><a href="/survey" target="_blank" rel="noopener">Let me know</a></u></b></p>
-        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Interested to talk to me?</span><b><u><a href="#" target="_blank" rel="noopener">Send me a message</a></u></b></p>
-        <p class="font-size-lg text-center mb-1"><span class="text-light mr-1">Want to Support my Work?</span><b><u><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></u></b></p>
-        <hr class="hr-light mt-5 pb-4">
-        <p class="font-size-sm text-center mb-4 py-3"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+        <p class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</p>
+        <hr class="border-light">
+        <div class="row align-items-center my-3 pt-4">
+          <div class="col-md-6 order-md-1 mb-3">
+            <p class="font-size-sm mb-0"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+          </div>
+        </div>
       </div>
     </footer>
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
