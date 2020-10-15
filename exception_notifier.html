@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Aditya Karnik</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Aditya Karnik - A Showcase of things">
+    <meta name="keywords" content="profile, landing page, portfolio, name, homepage, resume">
+    <meta name="author" content="Aditya Karnik">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Ubuntu -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="assets/font/Marvelous-Script-Demo.otf" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/font/font-awesome.css">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="assets/images/logo/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        @font-face {
+            font-family: Marvelous-Script-Demo;
+            src:url("assets\\font\\Marvelous-Script-Demo.otf");
+        }
+        .logo-text {
+            font-family: Marvelous-Script-Demo;
+            font-size: 320%;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            color: #ffc602;
+        }
+        * {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .cs-page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+        }
+        .cs-page-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cs-page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 0;
+        }
+        .cs-page-loading.active > .cs-page-loading-inner {
+            opacity: 1;
+        }
+        .cs-page-loading-inner > span {
+            display: block;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #737491;
+        }
+        .cs-page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            border: .15em solid #766df4;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        @keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        iframe {
+            overflow:hidden;
+        }
+    </style>
+    <script src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="assets/css/simplebar.min.css">
+    <link rel="stylesheet" media="screen" href="assets/css/tiny-slider.css">
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+    <!-- Google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-173927461-1');
+    </script>
+
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <main class="cs-page-wrapper">
+      <!-- Navbar Floating light for Index page only-->
+      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+      <header class="cs-header navbar navbar-expand-lg navbar-light bg-light navbar-box-shadow navbar-sticky" data-scroll-header="">
+        <div class="container px-0 px-xl-3">
+          <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
+            <img class="d-none d-lg-block" width="153" src="assets/images/logo-dark.png" alt="aditya karnik">
+            <img class="d-lg-none" width="58" src="assets/images/logo-icon.png" alt="aditya karnik">
+            <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
+              <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
+              </a>
+            </div>
+            <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
+              <div class="cs-offcanvas-cap navbar-box-shadow">
+                <h5 class="mt-1 mb-0">Menu</h5>
+                <button class="close lead" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu"><span aria-hidden="true">×</span></button>
+              </div>
+              <div class="cs-offcanvas-body">
+                <!-- Menu-->
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="/" >Home</a></li>
+                  <li class="nav-item dropdown dropdown-mega active"><a class="nav-link dropdown-toggle" href="/blog_page">Blog</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Page content-->
+      <section class="container pt-4">
+        <h1 class="h2 pt-4 pt-md-5 mt-2">Exception Notifier - Jupyter Notebook</h1>
+        <div class="d-sm-flex alitgn-itams-center pt-3 font-size-sm">
+          <div class="d-flex align-items-center mb-3">
+            <div class="text-nowrap text-muted mr-3"><i class="fa fa-calendar mr-1"></i><span>Sep 6, 2020</span></div>
+            <div class="text-nowrap text-muted"><i class="fa fa-tag mr-1"></i><span>Python Titbits</span></div>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <!-- Project gallery (carousel)-->
+        <section class="pt-4 mt-lg-2 pb-lg-4">
+            <div id="tns1-mw" class="tns-ovh">
+                <div class="cs-carousel cs-controls-inside">
+                    <div class="cs-carousel-inner" data-carousel-options='{"gutter": 25}'>
+                      <div>
+                        <img class="rounded-lg" src="assets/images/01.jpg" alt="Image"/>
+                      </div>
+                      <div>
+                        <img class="rounded-lg" src="assets/images/01.jpg" alt="Image"/>
+                      </div>
+                      <div>
+                        <img class="rounded-lg" src="assets/images/01.jpg" alt="Image"/>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          <!-- <div class="cs-carousel cs-controls-inside cs-controls-onhover mb-4 mb-lg-0"> -->
+            <!-- <div class="tns-outer" id="tns1-ow"> -->
+                <!-- <div class="tns-controls" aria-label="Carousel Navigation" tabindex="0">
+                    <button type="button" data-controls="prev" tabindex="-1" aria-controls="tns1">
+                        <i class="fa fa-arrow-left"></i>
+                    </button>
+                    <button type="button" data-controls="next" tabindex="-1" aria-controls="tns1">
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div> -->
+                <!-- <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span class="current">1</span>  of 5</div> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        </section>
+        <!-- Project description-->
+        <section class="py-5">
+          <div class="row pb-md-2">
+            <div class="col-md-5">
+              <h3 class="h5">Client</h3>
+              <ul class="list-unstyled font-size-md mb-4 pb-2">
+                <li class="mb-2">Name:<span class="font-weight-medium text-nav ml-2">International Company Ltd.</span></li>
+                <li class="mb-2">Services:<span class="font-weight-medium text-nav ml-2">3D Modelling, Product Design</span></li>
+                <li>Website:<a class="nav-link-style ml-2" href="#">https://example.com</a></li>
+              </ul>
+              <h3 class="h5">Objective</h3>
+              <p class="font-size-sm mb-4 pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+              <h3 class="h5">Tools &amp; Technologies</h3>
+              <p class="font-size-sm mb-4 pb-2">Cinema 4D, Adobe Photoshop</p>
+              <h3 class="h5">Share</h3><a class="social-btn sb-outline sb-facebook mr-2 my-2" href="#"><i class="fe-facebook"></i></a><a class="social-btn sb-outline sb-twitter mr-2 my-2" href="#"><i class="fe-twitter"></i></a><a class="social-btn sb-outline sb-google mr-2 my-2" href="#"><i class="fe-google"></i></a><a class="social-btn sb-outline sb-pinterest my-2" href="#"><i class="fe-pinterest"></i></a>
+            </div>
+            <div class="col-md-7 pt-4 pt-md-0 mb-lg-4 pb-lg-2">
+              <h3 class="h5">Challenge</h3>
+              <p class="font-size-sm">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur non numquam eius modi tempora incidunt.</p>
+              <p class="font-size-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+              <p class="font-size-sm mb-0">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- Inner Pages-->
+      
+    </main>
+    <footer class="cs-footer bg-dark pt-5 pt-md-6">
+        <div class="container pt-3 pt-md-0">
+          <div class="row pb-3">
+            <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4"><a class="d-block mb-3" href="/" style="width: 153px;"><img src="assets/images/logo.png" alt="adityakarnik"></a>
+              <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-github" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://instagram.com/adityakarnik" target="_blank" rel="noopener">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <p class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</p>
+          <hr class="border-light">
+          <div class="row align-items-center my-3 pt-4">
+            <div class="col-md-6 order-md-2 text-md-right mb-3">
+              <ul class="list-inline font-size-sm mb-0">
+                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></li>
+                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/survey" target="_blank" rel="noopener">Survey</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 order-md-1 mb-3">
+              <p class="font-size-sm mb-0"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script>
+        window.onload = function () {
+            // <link rel="stylesheet" href="assets/font/font-awesome.min.css">
+            // <link rel="stylesheet" href="assets/font/font-awesome.css">
+        }
+    </script>
+    <script src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-custom-file-input.min.js"></script>
+    <script src="assets/js/simplebar.min.js"></script>
+    <script src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>    
+    <script src="assets/js/tiny-slider.js"></script>    
+    <!-- Main theme script-->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
