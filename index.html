@@ -278,6 +278,8 @@
                   <button class="btn btn-success btn-block" id="email_subscribe" type="submit">Subscribe</button>
                 </div>
               </form>
+              &nbsp;
+              <div id="alert" class="alert alert-success" role="alert">We have successfully subscribed you. We will keep you updated on new blogs and news.</div>
             </div>
             <div class="col-md-5 offset-xl-1"><img class="d-block mx-auto" width="437" src="assets/images/cta-illustration.svg" alt="Illustration">
             </div>
@@ -321,6 +323,7 @@
     <!-- Main theme script-->
     <script src="assets/js/theme.min.js"></script>
     <script>
+      $("#alert").hide();
       var form = document.getElementById("sub-form");
       form.addEventListener("submit", function(ev) {
         ev.preventDefault();
@@ -332,10 +335,23 @@
             url: 'https://asia-south1-adityakarnik-com.cloudfunctions.net/subscription_form',
             data: formData,
             dataType: 'json',
-            encode: true
+            contentType: "application/json; charset=utf-8",
+            success: function(data) {
+              $("#alert").show();
+              form.reset();
+              console.log("success", data);
+            },
+            error: function(data) {
+              $("#alert").show();
+              form.reset();
+              console.log("error", data);
+            },
+            encode: true,
           })
           .done(function(data) {
-              console.log("form submitted");
+            $("#alert").show();
+            form.reset();
+            console.log("form submitted");
           });
       });
     </script>
