@@ -270,12 +270,12 @@
           <div class="row align-items-center">
             <div class="col-xl-6 col-md-7 mb-5 mb-md-0">
               <h2 class="text-light text-center text-md-left">Stay updated.</h2>
-              <form class="row">
+              <form class="row" id="sub-form">
                 <div class="col-lg-8 col-md-7 col-sm-8 mb-3 mb-sm-0">
-                  <input class="form-control" type="email" placeholder="Type your email..." required="">
+                  <input class="form-control" name="email_address" type="email" placeholder="Type your email..." required="">
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-4">
-                  <button class="btn btn-success btn-block" type="submit">Subscribe</button>
+                  <button class="btn btn-success btn-block" id="email_subscribe" type="submit">Subscribe</button>
                 </div>
               </form>
             </div>
@@ -312,6 +312,7 @@
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Vendor scrits: js libraries and plugins-->
     <script src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/bs-custom-file-input.min.js"></script>
     <script src="assets/js/simplebar.min.js"></script>
@@ -319,5 +320,24 @@
     <script src="assets/js/parallax.min.js"></script>
     <!-- Main theme script-->
     <script src="assets/js/theme.min.js"></script>
+    <script>
+      var form = document.getElementById("sub-form");
+      form.addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        var formData = {
+            'email_address': $('input[name=email_address]').val(),
+        };
+        $.ajax({
+            type: 'POST',
+            url: 'https://asia-south1-adityakarnik-com.cloudfunctions.net/subscription_form',
+            data: formData,
+            dataType: 'json',
+            encode: true
+          })
+          .done(function(data) {
+              console.log("form submitted");
+          });
+      });
+    </script>
   </body>
 </html>
