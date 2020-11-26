@@ -325,33 +325,36 @@
     <script>
       $("#alert").hide();
       var form = document.getElementById("sub-form");
-      form.addEventListener("submit", function(ev) {
-        ev.preventDefault();
+      $("#sub-form").submit(function(event) {
+        event.preventDefault();
         var formData = {
             'email_address': $('input[name=email_address]').val(),
         };
         $.ajax({
             type: 'POST',
             url: 'https://asia-south1-adityakarnik-com.cloudfunctions.net/subscription_form',
+            crossDomain: true,
             data: formData,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Headers': 'X-Requested-With',
+              "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+              "Access-Control-Allow-Methods": "POST"
+            },
+            contentType : "application/json",
             success: function(data) {
-              $("#alert").show();
-              form.reset();
-              console.log("success", data);
+              console.log("Success", data);
             },
             error: function(data) {
-              $("#alert").show();
-              form.reset();
               console.log("error", data);
             },
             encode: true,
           })
           .done(function(data) {
-            $("#alert").show();
-            form.reset();
-            console.log("form submitted");
+            console.log("formdata", formData);
+            // $("#alert").show();
+            // form.reset();
+            // console.log("form submitted");
           });
       });
     </script>
