@@ -270,9 +270,9 @@
           <div class="row align-items-center">
             <div class="col-xl-6 col-md-7 mb-5 mb-md-0">
               <h2 class="text-light text-center text-md-left">Stay updated.</h2>
-              <form class="row" id="sub-form">
+              <form class="row" id="sub-form" name="sub-form" method="post" enctype="multipart/form-data">
                 <div class="col-lg-8 col-md-7 col-sm-8 mb-3 mb-sm-0">
-                  <input class="form-control" name="email_address" type="email" placeholder="Type your email..." required="">
+                  <input class="form-control" id="email" name="email" type="email" placeholder="Type your email..." required="">
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-4">
                   <button class="btn btn-success btn-block" id="email_subscribe" type="submit">Subscribe</button>
@@ -327,9 +327,12 @@
       var form = document.getElementById("sub-form");
       $("#sub-form").submit(function(event) {
         event.preventDefault();
-        var formData = {
-            'email_address': $('input[name=email_address]').val(),
-        };
+        // var formData = {
+        //     'email_address': $('input[name=email]').val(),
+        // };
+        // var formData = new FormData(formData);
+        var formData = new FormData();
+        formData.append('email', $('input[name=email]').val());
         $.ajax({
             type: 'POST',
             url: 'https://asia-south1-adityakarnik-com.cloudfunctions.net/subscription_form',
@@ -337,10 +340,11 @@
             data: formData,
             headers: {
               'Access-Control-Allow-Origin': '*',
-              "Access-Control-Allow-Headers": "Content-Type, access-control-allow-origin",
+              "Access-Control-Allow-Headers": "Content-Type",
               "Access-Control-Allow-Methods": "POST, OPTIONS"
             },
-            contentType : "application/json",
+            contentType: false,
+            processData: false,
             success: function(data) {
               console.log("Success", data);
             },
@@ -350,10 +354,8 @@
             encode: true,
           })
           .done(function(data) {
-            console.log("formdata", formData);
-            // $("#alert").show();
-            // form.reset();
-            // console.log("form submitted");
+            $("#alert").show();
+            form.reset();
           });
       });
     </script>
