@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>Web ChatBot with Rasa API - Aditya Karnik</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Jupyter Notebook Extension for notifying failures in extensive tasks">
+    <meta name="keywords" content="profile, landing page, portfolio, name, homepage, resume, jupyter notebook, exception, notifier">
+    <meta name="author" content="Aditya Karnik">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Ubuntu -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="../assets/font/Marvelous-Script-Demo.otf" rel="stylesheet">
+    <link rel="preload"
+    as="style"
+    onload="this.rel = 'stylesheet'" href="../assets/font/font-awesome.min.css">
+    <link rel="preload"
+    as="style"
+    onload="this.rel = 'stylesheet'" href="../assets/font/font-awesome.css">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+    <link rel="manifest" href="../assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="../assets/images/logo/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        @font-face {
+            font-family: Marvelous-Script-Demo;
+            src:url("..\\assets\\font\\Marvelous-Script-Demo.otf");
+        }
+        .logo-text {
+            font-family: Marvelous-Script-Demo;
+            font-size: 320%;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            color: #ffc602;
+        }
+        * {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .cs-page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+        }
+        .cs-page-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cs-page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 0;
+        }
+        .cs-page-loading.active > .cs-page-loading-inner {
+            opacity: 1;
+        }
+        .cs-page-loading-inner > span {
+            display: block;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #737491;
+        }
+        .cs-page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            border: .15em solid #766df4;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        @keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+        }
+        iframe {
+            overflow:hidden;
+        }
+    </style>
+    <script src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="../assets/css/simplebar.min.css">
+    <link rel="stylesheet" media="screen" href="../assets/css/tiny-slider.css">
+    <link rel="stylesheet" media="screen" href="../assets/css/lightgallery.min.css">
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+    <!-- Google analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-173927461-1');
+    </script>
+
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <main class="cs-page-wrapper">
+        <!-- Navbar Floating light for Index page only-->
+        <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+        <header class="cs-header navbar navbar-expand-lg navbar-light bg-light navbar-box-shadow navbar-sticky" data-scroll-header="">
+            <div class="container px-0 px-xl-3">
+                <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
+                <img class="d-none d-lg-block" width="153" src="../assets/images/logo-dark.png" alt="aditya karnik">
+                <img class="d-lg-none" width="58" src="../assets/images/logo-icon.png" alt="aditya karnik">
+                <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
+                    <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                    <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
+                    </a>
+                </div>
+                <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
+                    <div class="cs-offcanvas-cap navbar-box-shadow">
+                        <h5 class="mt-1 mb-0">Menu</h5>
+                        <button class="close lead" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="cs-offcanvas-body">
+                        <!-- Menu-->
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="/" >Home</a></li>
+                            <li class="nav-item dropdown dropdown-mega active"><a class="nav-link dropdown-toggle" href="/blog">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Page content-->
+        <section class="container">
+            <h1 class="h1 pt-4 pt-md-5 mt-2">Web ChatBot using Rasa API</h1>
+            <div class="d-sm-flex alitgn-itams-center pt-3 font-size-sm">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="text-nowrap text-muted mr-3"><i class="fa fa-calendar mr-1"></i><span>Jun 13, 2020</span></div>
+                    <div class="text-nowrap text-muted"><i class="fa fa-tag mr-1"></i><span>Python Titbits</span></div>
+                </div>
+          </div>
+        </section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 cs-content pt-5 pt-lg-5 order-lg-2">
+                    <div class="cs-carousel">
+                        <!-- <div class="cs-carousel-inner" data-carousel-options='{"items": 2, "controls": false, "responsive": {"0": {"items": 1, "gutter": 10}, "768": {"items": 2, "gutter": 10}}}'>
+                            <div>
+                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
+                            </div>
+                            <div>
+                                <img class="rounded" src="../assets/images/slider_02.png" alt="Image"/>
+                            </div>
+                            <div>
+                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
+                            </div>
+                            <div>
+                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
+                            </div>
+                            <div>
+                                <img class="rounded" src="../assets/images/slider_02.png" alt="Image"/>
+                            </div>
+                            <div>
+                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
+                            </div>
+                        </div> -->
+                    </div>
+                    <h5>Say Hi</h5>
+                    <p class="py-1 font-size-lg mb-4 pb-2">
+                        Start your conversation with a Hi, always. The chatbot, once initialized, understands very basic gestures - figuratively.
+                    </p>
+                    <p class="py-1 font-size-lg mb-4 pb-2">In this tutorial, you will learn how to train a basic model and start a conversation with the chatbot using Rasa, some HTML and Chatroom.js. A web application interface, that will help communication with the bot feel more friendly.</p>
+                    <p class="py-1 font-size-lg mb-4 pb-2">What are we going to use:</p>
+                    <ol>
+                        <li>Rasa Framework</li>
+                        <li><a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">Chatroom.js component</a> a little bit of addition</li>
+                    </ol>
+                    <p class="py-1 font-size-lg mb-4 pb-2">What we need - Prerequisites: </p>
+                    <ol>
+                        <li>Python - Obviously. This tutorial uses Python-3.7, you can use any other version of your choice.</li>
+                        <li>HTML - A basic html page of your choice. <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">You can use my html page, if you don't already have one.</a> This one already has Chatroom in it, which I will be later explaining.</li>
+                        <li>Package - <code>Virtualenv</code> - This is always recommended when working on multiple version of packages as it should not break your python project already setup for another version.</li>
+                    </ol>
+                    <p class="py-1 font-size-lg mb-4 pb-2">Without wasting anymore time, lets dive in.</p>
+                </div>
+                <div class="col-lg-4 cs-sidebar pt-2 pt-lg-5 pb-lg-5 order-lg-1">
+                    <img class="rounded" src="../assets/images/chatbot_demo.gif" alt="chatbot_demo"/>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9 py-4 mb-2 mb-sm-0 pb-sm-5">
+                    <h5>Introduction</h5>
+                    <p class="py-1 font-size-lg mb-4 pb-2">You might feel the need to get in touch with your users more quickly or say, you need to provide best customer service, automating responses. Your reasons can be different but to achieve this with less efforts, you need the right tool.</p>
+                    <p class="py-1 font-size-lg mb-4 pb-2">Heres a report from <a target="_blank" rel="noopener" href="https://drift.com/">Drift</a> which show what are the most targeted application of ChatBots</p>
+                    <img class="rounded" src="https://www.drift.com/wp-content/uploads/2018/01/chatbots-report-use-cases.jpeg"/>
+                    <p class="py-1 font-size-lg mt-5 mb-4 pb-2">To achieve this, there are multiple providers which can give you the same result. In the tutorial we will be using <a target="_blank" rel="noopener" href="https://rasa.com/">Rasa</a>. As Rasa is an open source framework and with a great support community, it stands strong.</p>
+                    <p class="py-1 font-size-lg mt-5 mb-4 pb-2">Let us quickly setup Rasa.</p>
+                    <h5>Installation</h5>
+                    <p>Considering you have python, pip already installed follow these steps. If you do not have python installed, <a target="_blank" rel="noopener" href="https://www.python.org/downloads/">Visit here download and install it.</a></p>
+                    <p>First setup virtual environment:</p>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">virtualenv venv</code>
+                    <p>Next, activate virtual environment:</p>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">source venv/bin/activate # For Linux</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">.\venv\Scripts\activate # For Windows</code>
+                    <p>Install rasa:</p>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">pip install rasa</code>
+                    <p>Install rasa x:</p>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">pip install rasa-x --extra-index-url https://pypi.rasa.com/simple</code>
+                    <p class="py-1 font-size-lg mb-4 pb-2">Here we complete the installation for the chatbot. Now lets create a project and further continue the quest</p>
+                    <p>Start project:</p>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">rasa init --no-prompt</code>
+                    <p class="py-1 font-size-lg mb-4 pb-2">In your present working directory (pwd) you now see a lot of files and directory that the command has created. Let us briefly go through each of them</p>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 cs-content pt-5 pt-lg-5 order-lg-2">
+                            <code>\actions\actions.py</code> <p>This file represents the custom action or responses you which to send whenever you want to compute or fetch data from elsewhere.</p>
+                            <code>\config.yml</code> <p>The config file defines what your model should have as components and policy to predict the users input. Right now we will use the file as is.</p>
+                            <code>\data\nlu.yml</code> or <code>\data\nlu.md</code> - 
+                            <p>Depending on the version of Rasa, you will get the different set of file, in older version .md file was used. In the newer version it is changed to .yml.
+                                This file contains the values to be mapped to the key. Take for example: if you say <code>Good morning</code> the prediction will try and change similar words defined in this file and map the key, which in this case is <code>greet</code>. In terms of chatbot it is an <b>intent</b>
+                            <br>Similarly, each intent should have one set of statement to understand the user input</p>
+                            <code>\config.yml</code> <p>The config file defines what your model should have as components and policy to predict the users input. Right now we will use the file as is.</p>
+                            <code>\config.yml</code> <p>The config file defines what your model should have as components and policy to predict the users input. Right now we will use the file as is.</p>
+                        </div>
+                        <div class="col-lg-4 cs-sidebar pt-2 pt-lg-5 pb-lg-5 order-lg-1">
+                            <img class="rounded" src="../assets/images/figure_rasa_file_structure.PNG" alt="rasa_file_structure"/>
+                        </div>
+                    </div>
+                    <p class="py-1 font-size-lg mb-4 pb-2">While the command <code>rasa init</code> was being executed, you could see some thing like this:</p>
+                    <img class="rounded" src="../assets/images/figure_nlu_model.jpg"/>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="cs-footer bg-dark pt-5 pt-md-6">
+        <div class="container pt-3 pt-md-0">
+          <div class="row pb-3">
+            <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4"><a class="d-block mb-3" href="/" style="width: 153px;"><img src="../assets/images/logo.png" alt="adityakarnik"></a>
+              <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                <i class="fa fa-github" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://instagram.com/adityakarnik" target="_blank" rel="noopener">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <p class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</p>
+          <hr class="border-light">
+          <div class="row align-items-center my-3 pt-4">
+            <div class="col-md-6 order-md-2 text-md-right mb-3">
+              <ul class="list-inline font-size-sm mb-0">
+                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></li>
+                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/survey" target="_blank" rel="noopener">Survey</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 order-md-1 mb-3">
+              <p class="font-size-sm mb-0"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script>
+        window.onload = function () {
+            // <link rel="stylesheet" href="../assets/font/font-awesome.min.css">
+            // <link rel="stylesheet" href="../assets/font/font-awesome.css">
+        }
+    </script>
+    <script src="../assets/js/jquery.slim.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bs-custom-file-input.min.js"></script>
+    <script src="../assets/js/simplebar.min.js"></script>
+    <script src="../assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script src="../assets/js/parallax.min.js"></script>    
+    <script src="../assets/js/tiny-slider.js"></script>    
+    <!-- Main theme script-->
+    <script src="../assets/js/theme.min.js"></script>
+  </body>
+</html>
