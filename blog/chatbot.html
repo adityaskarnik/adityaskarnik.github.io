@@ -192,28 +192,6 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 cs-content pt-5 pt-lg-5 order-lg-2">
-                    <div class="cs-carousel">
-                        <!-- <div class="cs-carousel-inner" data-carousel-options='{"items": 2, "controls": false, "responsive": {"0": {"items": 1, "gutter": 10}, "768": {"items": 2, "gutter": 10}}}'>
-                            <div>
-                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
-                            </div>
-                            <div>
-                                <img class="rounded" src="../assets/images/slider_02.png" alt="Image"/>
-                            </div>
-                            <div>
-                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
-                            </div>
-                            <div>
-                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
-                            </div>
-                            <div>
-                                <img class="rounded" src="../assets/images/slider_02.png" alt="Image"/>
-                            </div>
-                            <div>
-                                <img class="rounded" src="../assets/images/slider_01.png" alt="Image"/>
-                            </div>
-                        </div> -->
-                    </div>
                     <h5>Say Hi</h5>
                     <p class="py-1 font-size-lg mb-4 pb-2">
                         Start your conversation with a Hi, always. The chatbot, once initialized, understands very basic gestures - figuratively.
@@ -296,7 +274,30 @@
                     <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">rasa run -m models --enable-api --cors "*" -p 5021</code>
                     <p>Command starts api with latest model file.</p>
                     <p>Notice the <code>--cors</code>. This will let you communicate over different server. If not you can only send and receive messages on the same server as rasa.<br>The <code>"*"</code> opens for all servers. You can specify a single server ip address.</p>
-                    <p><code>-p</code> Lets you define what port number you want to expose the api. This in my case where my server is already allowed communication over 5021</p>
+                    <p class="mb-4 pb-2"><code>-p</code> Lets you define what port number you want to expose the api. This in my case where my server is already allowed communication over 5021</p>
+                    <h5>Chat UI</h5>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Now that your chat api is exposed and open for messages, lets get to the last part to display the chat window and interact with Rasa server.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">For this you need to get a copy of the Chatroom.js and Chatroom.css from the creator's <a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">GitHub page</a>.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Also you need an HTML page where you will embed the Chatroom to configure it and connect to your Rasa Server. Grab a copy for the file <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">here</a>.<br>Now lets understand what have we got here and what you might need to modify.</p>
+                    <div class="cs-gallery">
+                        <a href="../assets/images/figure_rasa_html_code.png" class="cs-gallery-item rounded-lg" data-sub-html='<h6 class="font-size-sm text-light">HTML Code breakdown</h6>'>
+                        <img src="../assets/images/figure_rasa_html_code.png" alt="Gallery thumbnail">
+                        <span class="cs-gallery-caption">HTML Code Breakdown - Click to Expand</span>
+                        </a>
+                    </div>
+                    <ol class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">
+                        <li>Jquery is required for the basic functionality for .js files in the script tag.</li>
+                        <li>The <code>Chatroom.css</code> file is required for the UI of the chat window, the color, the font</li>
+                        <li>The <code>div</code> tag will place the Chat window where you wish it to be embed in the html page</li>
+                        <li>The <code>Chatroom.js</code> file you will need to add to your script tag before calling the chatroom.Window function. This file has the functionality for sending and receiving the messages.</li>
+                        <li>The url for the Rasa server where I have previously asked you to start the <code>rasa run -m models</code> command. Right now where you are running the server will be your local server <code>localhost</code>. Later in case if you run it on a separate server you will need to add the IP address here.<br>Make sure to expose the port number</li>
+                        <li>A default welcome message you wish the chatbot to greet you with.</li>
+                        <li>This is an extra functionality added to start sending message on your behalf to your rasa server. The response to this message will be your actual response from the server, with a API call.</li>
+                    </ol>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">CONGRATULATION!! With this we complete the Rasa ChatBot working and you have your own assistant.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">If you wish you get the Source Code of this tutorial. <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/archive/master.zip">Click here</a></p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Make the most of this and <a target="_blank" rel="noopener" href="#">let me know</a> in case if you have any issues. Also let me know your feedback <a href="/survey" target="_blank" rel="noopener">here</a></p>
+
                 </div>
             </div>
         </div>
@@ -317,7 +318,7 @@
               <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://instagram.com/adityakarnik" target="_blank" rel="noopener">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:aditya.s.karnik@gmail.com" target="_blank" rel="noopener">
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:me@adityakarnik.com" target="_blank" rel="noopener">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
               </a>
             </div>
@@ -337,6 +338,7 @@
           </div>
         </div>
       </footer>
+      <button class="btn btn-primary btn-sm cs-sidebar-toggle" type="button" data-toggle="offcanvas" data-offcanvas-id="blog-sidebar"><i class="fe-sidebar font-size-base mr-2"></i>Sidebar</button>
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Vendor scrits: js libraries and plugins-->
     <script>
@@ -351,8 +353,14 @@
     <script src="../assets/js/simplebar.min.js"></script>
     <script src="../assets/js/smooth-scroll.polyfills.min.js"></script>
     <script src="../assets/js/parallax.min.js"></script>    
-    <script src="../assets/js/tiny-slider.js"></script>    
+    <script src="../assets/js/tiny-slider.js"></script>
+    <script src="../assets/js/lightgallery.min.js"></script>
+    <script src="../assets/js/lg-video.min.js"></script>
+    <script src="../assets/js/lg-zoom.min.js"></script>
+    <script src="../assets/js/lg-fullscreen.min.js"></script>
+
     <!-- Main theme script-->
     <script src="../assets/js/theme.min.js"></script>
+    
   </body>
 </html>
