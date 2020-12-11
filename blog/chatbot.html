@@ -10,7 +10,9 @@
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Ubuntu -->
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link href="../assets/font/Marvelous-Script-Demo.otf" rel="stylesheet">
     <link rel="preload"
     as="style"
@@ -125,6 +127,12 @@
         iframe {
             overflow:hidden;
         }
+        code {
+            font-family: 'Ubuntu', sans-serif;
+        }
+        pre {
+            font-family: 'Ubuntu', sans-serif;
+        }
     </style>
     <script src="https://use.fontawesome.com/449fc92c63.js"></script>
     <!-- Vendor Styles-->
@@ -133,6 +141,7 @@
     <link rel="stylesheet" media="screen" href="../assets/css/lightgallery.min.css">
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
+    <script src="../assets/js/run_prettify.js?lang=py&amp;skin=sunburst"></script>
     <!-- Google analytics -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
@@ -225,7 +234,7 @@
                     <ol>
                         <li>Python - Obviously. This tutorial uses Python-3.7, you can use any other version of your choice.</li>
                         <li>HTML - A basic html page of your choice. <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">You can use my html page, if you don't already have one.</a> This one already has Chatroom in it, which I will be later explaining.</li>
-                        <li>Package - <code>Virtualenv</code> - This is always recommended when working on multiple version of packages as it should not break your python project already setup for another version.</li>
+                        <li>Package - <code style="font-family: Ubuntu;">Virtualenv</code> - This is always recommended when working on multiple version of packages as it should not break your python project already setup for another version.</li>
                     </ol>
                     <p class="py-1 font-size-lg mb-4 pb-2">Without wasting anymore time, lets dive in.</p>
                 </div>
@@ -244,56 +253,110 @@
                     <h5>Installation</h5>
                     <p>Considering you have python, pip already installed follow these steps. If you do not have python installed, <a target="_blank" rel="noopener" href="https://www.python.org/downloads/">Visit here download and install it.</a></p>
                     <p>First setup virtual environment:</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">virtualenv venv</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">virtualenv venv</code>
                     <p>Next, activate virtual environment:</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">source venv/bin/activate # For Linux</code>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">.\venv\Scripts\activate # For Windows</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">source venv/bin/activate # For Linux</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">.\venv\Scripts\activate # For Windows</code>
                     <p>Install rasa:</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">pip install rasa</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">pip install rasa</code>
                     <p>Install rasa x:</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">pip install rasa-x --extra-index-url https://pypi.rasa.com/simple</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">pip install rasa-x --extra-index-url https://pypi.rasa.com/simple</code>
                     <p class="py-1 font-size-lg mb-4 pb-2">Here we complete the installation for the chatbot. Now lets create a project and further continue the quest</p>
                     <p>Start project:</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">rasa init --no-prompt</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">rasa init --no-prompt</code>
                     <h5>File Structure</h5>
                     <p class="py-1 font-size-lg mb-4 pb-2">In your present working directory (pwd) you now see a lot of files and directory that the command has created. Let us briefly go through each of them</p>
                     <div class="row justify-content-center">
                         <div class="col-lg-8 cs-content pt-5 pt-lg-5 order-lg-2">
-                            <code>\actions\actions.py</code> <p>This file represents the custom action or responses you which to send whenever you want to compute or fetch data from elsewhere.</p>
-                            <code>\config.yml</code> <p>The config file defines what your model should have as components and policy to predict the users input. Right now we will use the file as is.</p>
-                            <code>\credentials.yml</code> <p>When you need to integrate external applications with your chatbot, such as, Microsoft Teams, Slack, Facebook Messenger, Telegram, etc. you need to add the secret key and id in this file.</p>
-                            <code>\data\nlu.yml</code> or <code>\data\nlu.md</code> - 
+                            <code style="font-family: Ubuntu;">\actions\actions.py</code> <p>This file represents the custom action or responses you which to send whenever you want to compute or fetch data from elsewhere. We will look into this in detail later.</p>
+                            <code style="font-family: Ubuntu;">\config.yml</code> <p>The config file defines what your model should have as components and policy to predict the users input. Right now we will use the file as is.</p>
+                            <code style="font-family: Ubuntu;">\credentials.yml</code> <p>When you need to integrate external applications with your chatbot, such as, Microsoft Teams, Slack, Facebook Messenger, Telegram, etc. you need to add the secret key and id in this file.</p>
+                            <code style="font-family: Ubuntu;">\data\nlu.yml</code> or <code style="font-family: Ubuntu;">\data\nlu.md</code> - 
                             <p>Depending on the version of Rasa, you will get the different set of file, in older version .md file was used. In the newer version it is changed to .yml.
-                                This file contains the values to be mapped to the key. Take for example: if you say <code>Good morning</code> the prediction will try and change similar words defined in this file and map the key, which in this case is <code>greet</code>. In terms of chatbot it is an <b>intent</b>
+                                This file contains the values to be mapped to the key. Take for example: if you say <code style="font-family: Ubuntu;">Good morning</code> the prediction will try and change similar words defined in this file and map the key, which in this case is <code style="font-family: Ubuntu;">greet</code>. In terms of chatbot it is an <b>intent</b>
                                 <br>Similarly, each intent should have one set of statement to understand the user input</p>
-                            <code>\data\rules.yml</code><p>Rules file was later integrated in Rasa to 2.x version. This is to generalize a conversation which the bot does not already have a response for.</p>
-                            <code>\data\stories.yml</code><p>Stories are predefined steps a must follow to interact with the user. A story contains Action and Intent. Actions are responses the bot send as messages, while Intents are set of statements which the user messages have.</p>
-                            <code>\domain.yml</code> <p>Domain includes a list of all the intents, entities, slots, actions, and forms that the assistant knows about.</p>
-                            <code>\models</code> <p>Models contain the zip file of the NLU data, configuration and components you define in the data files.<br>The command <code>rasa train</code> creates the zip files for you.</p>
+                            <code style="font-family: Ubuntu;">\data\rules.yml</code><p>Rules file was later integrated in Rasa to 2.x version. This is to generalize a conversation which the bot does not already have a response for.</p>
+                            <code style="font-family: Ubuntu;">\data\stories.yml</code><p>Stories are predefined steps a must follow to interact with the user. A story contains Action and Intent. Actions are responses the bot send as messages, while Intents are set of statements which the user messages have.</p>
+                            <code style="font-family: Ubuntu;">\domain.yml</code> <p>Domain includes a list of all the intents, entities, slots, actions, and forms that the assistant knows about.</p>
+                            <code style="font-family: Ubuntu;">\models</code> <p>Models contain the zip file of the NLU data, configuration and components you define in the data files.<br>The command <code style="font-family: Ubuntu;">rasa train</code> creates the zip files for you.</p>
                         </div>
                         <div class="col-lg-4 cs-sidebar pt-2 pt-lg-5 pb-lg-5 order-lg-1">
                             <img class="rounded" src="../assets/images/figure_rasa_file_structure.PNG" alt="rasa_file_structure"/>
                         </div>
                     </div>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">While the command <code>rasa init</code> was being executed, you could see some thing like this:</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">While the command <code style="font-family: Ubuntu;">rasa init</code> was being executed, you could see some thing like this:</p>
                     <img class="rounded" src="../assets/images/figure_nlu_model.JPG"/>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">Let us understand what it does.<br>By default rasa has defined a basic set of intents, actions, story. This here is the model creation that we saw earlier in the <code>\models</code> folder. It will create a zip file of all the set of constrains in <code>\data</code></p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">As soon as the command completes its execution, it will show you, to run the <code>rasa shell</code> command and start conversation. Which means you ready to roll.</p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">By Default rasa creates a file with the current <code><__timestamp__>.zip</code> file. If you wish you to change the path, that you can run the rasa train command with arguments <code>--out</code>.<br>You can add <code>--fixed-model-name</code> to name the model.<br>It will either choose core or nlu data, unless specified.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">Let us understand what it does.<br>By default rasa has defined a basic set of intents, actions, story. This here is the model creation that we saw earlier in the <code style="font-family: Ubuntu;">\models</code> folder. It will create a zip file of all the set of constrains in <code style="font-family: Ubuntu;">\data</code></p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">As soon as the command completes its execution, it will show you, to run the <code style="font-family: Ubuntu;">rasa shell</code> command and start conversation. Which means you ready to roll.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pb-2">By Default rasa creates a file with the current <code style="font-family: Ubuntu;"><__timestamp__>.zip</code> file. If you wish you to change the path, that you can run the rasa train command with arguments <code style="font-family: Ubuntu;">--out</code>.<br>You can add <code style="font-family: Ubuntu;">--fixed-model-name</code> to name the model.<br>It will either choose core or nlu data, unless specified.</p>
                     <h5>APIs</h5>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">To create channel for communicating with the ChatBot Server, you can create a HTTP API. You can send and receive messages over this API and train models.</p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">API endpoints are not enabled by default. Endpoints are defined in the file <code>credentials.yml</code> and they are exposed webhook/rest/webhook</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">rest:<br>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">API endpoints are not enabled by default. Endpoints are defined in the file <code style="font-family: Ubuntu;">credentials.yml</code> and they are exposed webhook/rest/webhook</p>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">rest:<br>
                         # you don't need to provide anything here - this channel doesn't<br>
                         # require any credentials
                     </code>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">To enable lets fire up the rocket, Run the following commands to start the chat api:</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">rasa run actions -vv</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">rasa run actions -vv</code>
                     <p>Command starts the action server, where your custom actions are ready to respond</p>
-                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded">rasa run -m models --enable-api --cors "*" -p 5021</code>
+                    <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">rasa run -m models --enable-api --cors "*" -p 5021</code>
                     <p>Command starts api with latest model file.</p>
-                    <p>Notice the <code>--cors</code>. This will let you communicate over different server. If not you can only send and receive messages on the same server as rasa.<br>The <code>"*"</code> opens for all servers. You can specify a single server ip address.</p>
-                    <p class="mb-4 pb-2"><code>-p</code> Lets you define what port number you want to expose the api. This in my case where my server is already allowed communication over 5021</p>
+                    <p>Notice the <code style="font-family: Ubuntu;">--cors</code>. This will let you communicate over different server. If not you can only send and receive messages on the same server as rasa.<br>The <code style="font-family: Ubuntu;">"*"</code> opens for all servers. You can specify a single server ip address.</p>
+                    <p class="mb-4 pb-2"><code style="font-family: Ubuntu;">-p</code> Lets you define what port number you want to expose the api. This in my case where my server is already allowed communication over 5021</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Lets understand the actions.py file for which the above two commands have been used.</p>
+                    <pre class="prettyprint" style="font-family: Ubuntu;">from typing import Any, Text, Dict, List
+
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+
+
+class ActionHelloWorld(Action):
+
+    def name(self) -> Text:
+        return "action_hello_world"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text="Hello World!")
+
+        return []
+    
+class FetchFromDatabase(Action):
+
+def name(self) -> Text:
+    return "fetch_location_restaurants"
+
+def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        restaurant = str((tracker.latest_message)['text']).split("Provide me Menu of")[1].strip()
+        import sqlite3
+        conn = sqlite3.connect('hotel.db')
+        data = conn.execute("SELECT FOOD_ITEM, PRICE, IMAGE FROM HOTEL_INFO WHERE RESTAURANTS='" + restaurant +"'")
+        for i in data:
+            dispatcher.utter_message(text=str(i[0] + ", " + i[1]), image=i[2])
+
+        return []</code></pre>
+                    <ol>
+                        <li>Here at the beginning of the code you can see some import statements, these are normal rasa packages that are required</li>
+                        <li>The class name can be anything you wish to define</li>
+                        <li>Next important thing is the name of the function, <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">action_hello_world</code> This is a custom function name for your custom action that you need to define in the <code style="font-family: Ubuntu;">domain.yml </code>file. In the story you create, when it requires to send a response message it will try to search in the actions.py file and perform its operation.</li>
+                        <li>In the default <code style="font-family: Ubuntu;">run</code> function you need to add your code and compute your response to be dispatched.</li>
+                        <li>With the tracker argument you can fetch all the latest messages, the intent, the slot and more. This will be helpful in understanding the previous message and what action needs to be taken accordingly.
+                            <ul>
+                                <li><code style="font-family: Ubuntu;">tracker.latest_message.get("text")</code> will provide the string of last bot or user messages.</li>
+                                <li><code style="font-family: Ubuntu;">tracker.events</code> give the entire conversation.</li>
+                                <li><code style="font-family: Ubuntu;">tracker.sender_id</code> contains the unique id created for the conversation.</li>
+                                <li><pre class="prettyprint"><code style="font-family: Ubuntu;">for event in (list(reversed(tracker.events))):<br>    if event.get("event") == "user":    # change 'user' to 'bot' for message responses of only the chat server<br>        last_messages.append(event.get("text"))<br>        print("Messages", last_messages)</code></pre>
+                                These line will get you the message input by the user, similarly you can get all the messages of the bot using the <code style="font-family: Ubuntu;">event.get("event") == "bot"</code> statement.</li>
+                            </ul>
+                        </li>
+                        <li>The second class <code style="font-family: Ubuntu;">FetchFromDatabase</code> is from our working example where depending in the selection we are fetching from the database the details of the restaurant.</li>
+                        <li>The last and the final statement <code style="font-family: Ubuntu;">dispatcher.utter_message()</code> will send a response via the API to the user. This function takes input of text and image, as shown in the example. A valid image path is expected.</li>
+                    </ol>
                     <h5>Chat UI</h5>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Now that your chat api is exposed and open for messages, lets get to the last part to display the chat window and interact with Rasa server.</p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">For this you need to get a copy of the Chatroom.js and Chatroom.css from the creator's <a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">GitHub page</a>.</p>
@@ -306,16 +369,20 @@
                     </div>
                     <ol class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">
                         <li>Jquery is required for the basic functionality for .js files in the script tag.</li>
-                        <li>The <code>Chatroom.css</code> file is required for the UI of the chat window, the color, the font</li>
-                        <li>The <code>div</code> tag will place the Chat window where you wish it to be embed in the html page</li>
-                        <li>The <code>Chatroom.js</code> file you will need to add to your script tag before calling the chatroom.Window function. This file has the functionality for sending and receiving the messages.</li>
-                        <li>The url for the Rasa server where I have previously asked you to start the <code>rasa run -m models</code> command. Right now where you are running the server will be your local server <code>localhost</code>. Later in case if you run it on a separate server you will need to add the IP address here.<br>Make sure to expose the port number</li>
+                        <li>The <code style="font-family: Ubuntu;">Chatroom.css</code> file is required for the UI of the chat window, the color, the font</li>
+                        <li>The <code style="font-family: Ubuntu;">div</code> tag will place the Chat window where you wish it to be embed in the html page</li>
+                        <li>The <code style="font-family: Ubuntu;">Chatroom.js</code> file you will need to add to your script tag before calling the chatroom.Window function. This file has the functionality for sending and receiving the messages.</li>
+                        <li>The url for the Rasa server where I have previously asked you to start the <code style="font-family: Ubuntu;">rasa run -m models</code> command. Right now where you are running the server will be your local server <code style="font-family: Ubuntu;">localhost</code>. Later in case if you run it on a separate server you will need to add the IP address here.<br>Make sure to expose the port number</li>
                         <li>A default welcome message you wish the chatbot to greet you with.</li>
                         <li>This is an extra functionality added to start sending message on your behalf to your rasa server. The response to this message will be your actual response from the server, with a API call.</li>
                     </ol>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">CONGRATULATION!! With this we complete the Rasa ChatBot working and you have your own assistant.</p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">If you wish to get the Source Code of this tutorial. <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/archive/master.zip">Click here</a></p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Make the most of this and <a target="_blank" rel="noopener" href="#">let me know</a> in case if you have any issues. Also let me know your feedback <a href="/survey" target="_blank" rel="noopener">here</a></p>
+                    <h5>Credits</h5>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">The restaurants database used in the ChatBot is the idea of <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ahmed-aqib">Aqib Ahmed</a>.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2"><a target="_blank" rel="noopener" href="https://rasa.com/docs/rasa/http-api">Rasa's Reference Documentations will give you more details</a></p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">The ChatUI is possible with the help of <a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">Chatroom.js</a></p>
                 </div>
             </div>
         </div>
