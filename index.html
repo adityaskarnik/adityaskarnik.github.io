@@ -126,7 +126,7 @@
             object-fit: cover;
         }
     </style>
-    <script async defer src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <script defer src="https://use.fontawesome.com/449fc92c63.js"></script>
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="assets/css/simplebar.min.css">
     <!-- Main Theme Styles + Bootstrap-->
@@ -328,24 +328,12 @@
     </footer>
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Vendor scrits: js libraries and plugins-->
-    <script async defer src="assets/js/jquery.slim.min.js"></script>
-    <script async defer src="assets/js/jquery-3.5.1.min.js"></script>
-    <script async defer src="assets/js/bootstrap.bundle.min.js"></script>
-    <script async defer src="assets/js/bs-custom-file-input.min.js"></script>
-    <script async defer src="assets/js/simplebar.min.js"></script>
-    <script async defer src="assets/js/smooth-scroll.polyfills.min.js"></script>
-    <script async defer src="assets/js/parallax.min.js"></script>
-    <!-- Main theme script-->
-    <script async defer src="assets/js/theme.min.js"></script>
-    <script>
+    <script defer src="assets/js/jquery.slim.min.js"></script>
+    <script defer src="assets/js/jquery-3.5.1.min.js">
       $("#alert").hide();
       var form = document.getElementById("sub-form");
       $("#sub-form").submit(function(event) {
         event.preventDefault();
-        // var formData = {
-        //     'email_address': $('input[name=email]').val(),
-        // };
-        // var formData = new FormData(formData);
         var formData = new FormData();
         formData.append('email', $('input[name=email]').val());
         $.ajax({
@@ -373,6 +361,16 @@
             form.reset();
           });
       });
+    </script>
+    <script defer src="assets/js/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/js/bs-custom-file-input.min.js"></script>
+    <script defer src="assets/js/simplebar.min.js"></script>
+    <script defer src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script defer src="assets/js/parallax.min.js"></script>
+    <!-- Main theme script-->
+    <script defer src="assets/js/theme.min.js"></script>
+    <script>
+      
     </script>
   </body>
 </html>
