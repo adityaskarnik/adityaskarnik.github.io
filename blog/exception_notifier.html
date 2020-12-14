@@ -40,6 +40,7 @@
     <style>
         @font-face {
             font-family: Marvelous-Script-Demo;
+            font-display: swap;
             src:url("..\\assets\\font\\Marvelous-Script-Demo.otf");
         }
         .logo-text {
@@ -49,12 +50,15 @@
             height: auto;
             text-align: center;
             color: #ffc602;
+            font-display: swap;
         }
         * {
             font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
         }
         body {
             font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
         }
         .cs-page-loading {
             position: fixed;
@@ -96,6 +100,7 @@
             font-size: 1rem;
             font-weight: normal;
             color: #737491;
+            font-display: swap;
         }
         .cs-page-spinner {
             display: inline-block;
@@ -125,13 +130,27 @@
             overflow:hidden;
         }
     </style>
-    <script src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <script async defer src="https://use.fontawesome.com/449fc92c63.js"></script>
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="../assets/css/simplebar.min.css">
     <link rel="stylesheet" media="screen" href="../assets/css/tiny-slider.css">
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
     <!-- Google analytics -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <!-- Global site tag (gtag.js) - Google Ads: 942098851 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-942098851"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-942098851');
+    </script>
+    <!-- Event snippet for Website traffic conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-942098851/xQJACJqMsO0BEKOTncED'});
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
     <script>
@@ -145,6 +164,7 @@
   </head>
   <!-- Body-->
   <body>
+    <!-- Global site tag (gtag) - Google Ads: 942098851 --> <amp-analytics type="gtag" data-credentials="include"> <script type="application/json"> { "vars": { "gtag_id": "AW-942098851", "config": { "AW-942098851": { "groups": "default" } } }, "triggers": { "C_JVmPciA7KpY": { "on": "visible", "vars": { "event_name": "conversion", "send_to": ["AW-942098851/xQJACJqMsO0BEKOTncED"] } }} } </script> </amp-analytics>
     <!-- Page loading spinner-->
     <main class="cs-page-wrapper">
       <!-- Navbar Floating light for Index page only-->
@@ -298,14 +318,14 @@
             // <link rel="stylesheet" href="../assets/font/font-awesome.css">
         }
     </script>
-    <script src="../assets/js/jquery.slim.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/bs-custom-file-input.min.js"></script>
-    <script src="../assets/js/simplebar.min.js"></script>
-    <script src="../assets/js/smooth-scroll.polyfills.min.js"></script>
-    <script src="../assets/js/parallax.min.js"></script>    
-    <script src="../assets/js/tiny-slider.js"></script>    
+    <script async defer src="../assets/js/jquery.slim.min.js"></script>
+    <script async defer src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script async defer src="../assets/js/bs-custom-file-input.min.js"></script>
+    <script async defer src="../assets/js/simplebar.min.js"></script>
+    <script async defer src="../assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script async defer src="../assets/js/parallax.min.js"></script>    
+    <script async defer src="../assets/js/tiny-slider.js"></script>    
     <!-- Main theme script-->
-    <script src="../assets/js/theme.min.js"></script>
+    <script async defer src="../assets/js/theme.min.js"></script>
   </body>
 </html>

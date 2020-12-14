@@ -34,6 +34,7 @@
     <style>
         @font-face {
             font-family: Marvelous-Script-Demo;
+            font-display: swap;
             src:url("assets\\font\\Marvelous-Script-Demo.otf");
         }
         .logo-text {
@@ -43,12 +44,15 @@
             height: auto;
             text-align: center;
             color: #ffc602;
+            font-display: swap;
         }
         * {
             font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
         }
         body {
             font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
         }
         .cs-page-loading {
             position: fixed;
@@ -90,6 +94,7 @@
             font-size: 1rem;
             font-weight: normal;
             color: #737491;
+            font-display: swap;
         }
         .cs-page-spinner {
             display: inline-block;
@@ -119,12 +124,25 @@
             overflow:hidden;
         }
     </style>
-    <script src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <script async defer src="https://use.fontawesome.com/449fc92c63.js"></script>
     <!-- Vendor Styles-->
     <link rel="stylesheet" media="screen" href="assets/css/simplebar.min.css">
     <!-- Main Theme Styles + Bootstrap-->
     <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
     <!-- Google analytics -->
+    <!-- Global site tag (gtag.js) - Google Ads: 942098851 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-942098851"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-942098851');
+    </script>
+    <!-- Event snippet for Website traffic conversion page -->
+    <script>
+      gtag('event', 'conversion', {'send_to': 'AW-942098851/xQJACJqMsO0BEKOTncED'});
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
     <script>
@@ -201,13 +219,13 @@
     </footer>
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Vendor scrits: js libraries and plugins-->
-    <script src="assets/js/jquery.slim.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/bs-custom-file-input.min.js"></script>
-    <script src="assets/js/simplebar.min.js"></script>
-    <script src="assets/js/smooth-scroll.polyfills.min.js"></script>
-    <script src="assets/js/parallax.min.js"></script>
+    <script async defer src="assets/js/jquery.slim.min.js"></script>
+    <script async defer src="assets/js/bootstrap.bundle.min.js"></script>
+    <script async defer src="assets/js/bs-custom-file-input.min.js"></script>
+    <script async defer src="assets/js/simplebar.min.js"></script>
+    <script async defer src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script async defer src="assets/js/parallax.min.js"></script>
     <!-- Main theme script-->
-    <script src="assets/js/theme.min.js"></script>
+    <script async defer src="assets/js/theme.min.js"></script>
   </body>
 </html>
