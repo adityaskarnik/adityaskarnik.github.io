@@ -187,7 +187,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
-                <img class="d-none d-lg-block" width="153" src="../assets/images/logo-dark.png" alt="aditya karnik">
+                <img class="lazyload d-none d-lg-block" width="153" src="../assets/images/logo-dark.png" alt="aditya karnik">
                 <img class="d-lg-none" width="58" src="../assets/images/logo-icon.png" alt="aditya karnik">
                 <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
                     <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
@@ -305,11 +305,11 @@
                             <code style="font-family: Ubuntu;">\models</code> <p>Models contain the zip file of the NLU data, configuration and components you define in the data files.<br>The command <code style="font-family: Ubuntu;">rasa train</code> creates the zip files for you.</p>
                         </div>
                         <div class="col-lg-4 cs-sidebar pt-2 pt-lg-5 pb-lg-5 order-lg-1">
-                            <img class="rounded" src="../assets/images/figure_rasa_file_structure.PNG" alt="rasa_file_structure"/>
+                            <img class="lazyload rounded" src="../assets/images/figure_rasa_file_structure.PNG" alt="rasa_file_structure"/>
                         </div>
                     </div>
                     <p class="py-1 font-size-lg mb-4 mt-4 pb-2">While the command <code style="font-family: Ubuntu;">rasa init</code> was being executed, you could see some thing like this:</p>
-                    <img class="rounded" src="../assets/images/figure_nlu_model.JPG"/>
+                    <img class="lazyload rounded" data-src="../assets/images/figure_nlu_model.JPG"/>
                     <p class="py-1 font-size-lg mb-4 mt-4 pb-2">Let us understand what it does.<br>By default rasa has defined a basic set of intents, actions, story. This here is the model creation that we saw earlier in the <code style="font-family: Ubuntu;">\models</code> folder. It will create a zip file of all the set of constrains in <code style="font-family: Ubuntu;">\data</code></p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pb-2">As soon as the command completes its execution, it will show you, to run the <code style="font-family: Ubuntu;">rasa shell</code> command and start conversation. Which means you ready to roll.</p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pb-2">By Default rasa creates a file with the current <code style="font-family: Ubuntu;"><__timestamp__>.zip</code> file. If you wish you to change the path, that you can run the rasa train command with arguments <code style="font-family: Ubuntu;">--out</code>.<br>You can add <code style="font-family: Ubuntu;">--fixed-model-name</code> to name the model.<br>It will either choose core or nlu data, unless specified.</p>
@@ -387,7 +387,7 @@ def run(self, dispatcher: CollectingDispatcher,
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Also you need an HTML page where you will embed the Chatroom to configure it and connect to your Rasa Server. Grab a copy for the file <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">here</a>.<br>Now lets understand what have we got here and what you might need to modify.</p>
                     <div class="cs-gallery">
                         <a href="../assets/images/figure_rasa_html_code.png" class="cs-gallery-item rounded-lg" data-sub-html='<h6 class="font-size-sm text-light">HTML Code breakdown</h6>'>
-                        <img src="../assets/images/figure_rasa_html_code.png" alt="Gallery thumbnail">
+                        <img class="lazyload" src="../assets/images/figure_rasa_html_code.png" alt="Gallery thumbnail">
                         <span class="cs-gallery-caption">HTML Code Breakdown - Click to Expand</span>
                         </a>
                     </div>
@@ -414,7 +414,7 @@ def run(self, dispatcher: CollectingDispatcher,
     <footer class="cs-footer bg-dark pt-5 pt-md-6">
         <div class="container pt-3 pt-md-0">
           <div class="row pb-3">
-            <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4"><a class="d-block mb-3" href="/" style="width: 153px;"><img src="../assets/images/logo.png" alt="adityakarnik"></a>
+            <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4"><a class="d-block mb-3" href="/" style="width: 153px;"><img class="lazyload" src="../assets/images/logo.png" alt="adityakarnik"></a>
               <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
@@ -467,7 +467,7 @@ def run(self, dispatcher: CollectingDispatcher,
     <script async src="../assets/js/lg-video.min.js"></script>
     <script async src="../assets/js/lg-zoom.min.js"></script>
     <script async src="../assets/js/lg-fullscreen.min.js"></script>
-
+    <script src="../assets/js/lazysizes.min.js" async></script>
     <!-- Main theme script-->
     <script async src="../assets/js/theme.min.js"></script>
     
