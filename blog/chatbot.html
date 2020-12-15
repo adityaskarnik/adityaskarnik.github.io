@@ -139,6 +139,11 @@
             font-family: 'Ubuntu', sans-serif;
             font-display: swap;
         }
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+            list-style-type: decimal !important;
+        }
+
     </style>
     <script async src="https://use.fontawesome.com/449fc92c63.js"></script>
     <!-- Vendor Styles-->
@@ -328,7 +333,7 @@
                     <p>Notice the <code style="font-family: Ubuntu;">--cors</code>. This will let you communicate over different server. If not you can only send and receive messages on the same server as rasa.<br>The <code style="font-family: Ubuntu;">"*"</code> opens for all servers. You can specify a single server ip address.</p>
                     <p class="mb-4 pb-2"><code style="font-family: Ubuntu;">-p</code> Lets you define what port number you want to expose the api. This in my case where my server is already allowed communication over 5021</p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Lets understand the actions.py file for which the above two commands have been used.</p>
-                    <pre class="prettyprint" style="font-family: Ubuntu;">from typing import Any, Text, Dict, List
+                    <pre class="prettyprint" style="font-family: Ubuntu;"><code>from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -385,20 +390,64 @@ def run(self, dispatcher: CollectingDispatcher,
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Now that your chat api is exposed and open for messages, lets get to the last part to display the chat window and interact with Rasa server.</p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">For this you need to get a copy of the Chatroom.js and Chatroom.css from the creator's <a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">GitHub page</a>.</p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Also you need an HTML page where you will embed the Chatroom to configure it and connect to your Rasa Server. Grab a copy for the file <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">here</a>.<br>Now lets understand what have we got here and what you might need to modify.</p>
-                    <div class="cs-gallery">
-                        <a href="../assets/images/figure_rasa_html_code.png" class="cs-gallery-item rounded-lg" data-sub-html='<h6 class="font-size-sm text-light">HTML Code breakdown</h6>'>
-                        <img class="lazyload" src="../assets/images/figure_rasa_html_code.png" alt="Gallery thumbnail">
-                        <span class="cs-gallery-caption">HTML Code Breakdown - Click to Expand</span>
-                        </a>
-                    </div>
+                    <pre class="prettyprint linenums"><code>&lt;html>
+    &lt;head>
+            &lt;script type="text/javascript" src="assets/jquery-1.10.0.min.js">&lt;/script>
+            &lt;title>
+                    Yelp for Help - ChatBot
+            &lt;/title>
+            &lt;link rel="stylesheet" href="assets/Chatroom.css" />
+            &lt;style>
+                    @font-face {
+                        font-family: "Ubuntu";
+                        src: url("assets/Ubuntu-Regular.ttf");
+                    }
+                    .chat-container {
+                        font-family: 'Ubuntu', sans-serif;
+                        width: 370px;
+                        position: absolute;
+                        bottom: 8px;
+                        right: 10px;
+                        font-size: 12px;
+                    }
+            &lt;/style>
+    &lt;/head>
+    &lt;body>
+            &lt;div class="chat-container">&lt;/div>        
+
+            &lt;script src="assets/Chatroom.js">&lt;/script>
+            &lt;script type="text/javascript">
+                    var chatroom = new window.Chatroom({
+                            host: "http://localhost:5021",
+                            title: "Chat with Paw",
+                            fontFamily: 'Ubuntu',
+                            container: document.querySelector(".chat-container"),
+                            welcomeMessage: "Hi I am Paw, How may I Help you?",
+                            speechRecognition: "en-US",
+                            height: "50px",
+                            fontSize: "10px"
+                    });
+                    $(document).ready(function() {
+                            setTimeout(function(){
+                                chatroom.openChat();
+                            }, 1000);
+                            document.getElementById("input_text").value = "Hi";
+                            document.getElementById("submit_input").click();
+                    });
+            &lt;/script>
+    &lt;/body>
+&lt;/html></code></pre>
+                        <!-- <span class="cs-gallery-caption">HTML Code Breakdown - Click to Expand</span> -->
+                        <!-- </a> -->
+                    <!-- </div> -->
                     <ol class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">
-                        <li>Jquery is required for the basic functionality for .js files in the script tag.</li>
-                        <li>The <code style="font-family: Ubuntu;">Chatroom.css</code> file is required for the UI of the chat window, the color, the font</li>
-                        <li>The <code style="font-family: Ubuntu;">div</code> tag will place the Chat window where you wish it to be embed in the html page</li>
-                        <li>The <code style="font-family: Ubuntu;">Chatroom.js</code> file you will need to add to your script tag before calling the chatroom.Window function. This file has the functionality for sending and receiving the messages.</li>
-                        <li>The url for the Rasa server where I have previously asked you to start the <code style="font-family: Ubuntu;">rasa run -m models</code> command. Right now where you are running the server will be your local server <code style="font-family: Ubuntu;">localhost</code>. Later in case if you run it on a separate server you will need to add the IP address here.<br>Make sure to expose the port number</li>
-                        <li>A default welcome message you wish the chatbot to greet you with.</li>
-                        <li>This is an extra functionality added to start sending message on your behalf to your rasa server. The response to this message will be your actual response from the server, with a API call.</li>
+                        <li>Line #3 Jquery is required for the basic functionality for .js files in the script tag.</li>
+                        <li>Line #7 The <code style="font-family: Ubuntu;">Chatroom.css</code> file is required for the UI of the chat window, the color, the font</li>
+                        <li>Line #24 The <code style="font-family: Ubuntu;">div</code> tag will place the Chat window where you wish it to be embed in the html page</li>
+                        <li>Line #26 The <code style="font-family: Ubuntu;">Chatroom.js</code> file you will need to add to your script tag before calling the chatroom.Window function. This file has the functionality for sending and receiving the messages.</li>
+                        <li>Line #29 The url for the Rasa server where I have previously asked you to start the <code style="font-family: Ubuntu;">rasa run -m models</code> command. Right now where you are running the server will be your local server <code style="font-family: Ubuntu;">localhost</code>. Later in case if you run it on a separate server you will need to add the IP address here.<br>Make sure to expose the port number</li>
+                        <li>Line #33 A default welcome message you wish the chatbot to greet you with.</li>
+                        <li>Line #42 This is an extra functionality added to start sending message on your behalf to your rasa server. The response to this message will be your actual response from the server, with a API call.</li>
                     </ol>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">CONGRATULATION!! With this we complete the Rasa ChatBot working and you have your own assistant.</p>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">If you wish to get the Source Code of this tutorial. <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/archive/master.zip">Click here</a></p>
