@@ -9,7 +9,7 @@
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Ubuntu -->
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet preload prefetch" as="font" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet preload prefetch" crossorigin="anonymous">
     <link href="assets/font/Marvelous-Script-Demo.otf" rel="stylesheet preload prefetch" as="font" crossorigin="anonymous">
     <!-- Favicon and Touch Icons-->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
@@ -157,7 +157,36 @@
 
       gtag('config', 'UA-173927461-1');
     </script>
-
+    
+    <!-- loading images that for caching -->
+    <link rel="preload" as="image" href="https://avatars2.githubusercontent.com/u/11070736?s=400&u=79992d939a9dec4b26434384d157032529a6ac3a&v=4">
+    <link rel="preload" as="image" href="assets/images/exception_notifier_screenshot.png">
+    <link rel="preload" href="assets/css/theme.min.css">
+    <link rel="preload" as="script" href="assets/js/jquery-3.5.1.min.js">
+    <link rel="preload" as="script" href="assets/js/jquery.slim.min.js">
+    <link rel="preload" as="script" href="assets/js/bootstrap.bundle.min.js">
+    <link rel="preload" as="script" href="assets/js/simplebar.min.js">
+    <link rel="preload" as="image" href="assets/images/parallax/layer01.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer02.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer03.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer04.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer05.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer06.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer07.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer08.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer08.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer10.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer11.webp">
+    <link rel="preload" as="image" href="assets/images/parallax/layer12.webp">
+    <link rel="preload" as="image" href="assets/images/logo.png">
+    <link rel="preload" as="script" href="assets/js/theme.min.js">
+    <link rel="preload" as="script" href="assets/js/parallax.min.js">
+    <link rel="preload" as="image" href="assets/images/logo-icon.png">
+    <link rel="preload" as="image" href="assets/images/cta-illustration.svg">
+    <link rel="preload" as="script" href="assets/js/smooth-scroll.polyfills.min.js">
+    <link rel="preload" as="script" href="assets/js/bs-custom-file-input.min.js">
+    <link rel="preload" href="assets/css/simplebar.min.css">
+    <link rel="preload" as="video" href="assets/video/chatbot_demo.webm">
   </head>
   <!-- Body-->
   <body>
@@ -328,8 +357,16 @@
     </footer>
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Vendor scrits: js libraries and plugins-->
-    <script defer src="assets/js/jquery.slim.min.js"></script>
-    <script defer src="assets/js/jquery-3.5.1.min.js">
+    <script async src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
+    <script async src="assets/js/bootstrap.bundle.min.js"></script>
+    <script async src="assets/js/bs-custom-file-input.min.js"></script>
+    <script async src="assets/js/simplebar.min.js"></script>
+    <script async src="assets/js/smooth-scroll.polyfills.min.js"></script>
+    <script async src="assets/js/parallax.min.js"></script>
+    <!-- Main theme script-->
+    <script async src="assets/js/theme.min.js"></script>
+    <script>
       $("#alert").hide();
       var form = document.getElementById("sub-form");
       $("#sub-form").submit(function(event) {
@@ -361,16 +398,6 @@
             form.reset();
           });
       });
-    </script>
-    <script defer src="assets/js/bootstrap.bundle.min.js"></script>
-    <script defer src="assets/js/bs-custom-file-input.min.js"></script>
-    <script defer src="assets/js/simplebar.min.js"></script>
-    <script defer src="assets/js/smooth-scroll.polyfills.min.js"></script>
-    <script defer src="assets/js/parallax.min.js"></script>
-    <!-- Main theme script-->
-    <script defer src="assets/js/theme.min.js"></script>
-    <script>
-      
     </script>
   </body>
 </html>
