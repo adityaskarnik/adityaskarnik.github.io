@@ -340,6 +340,7 @@
     <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
     <!-- Vendor scrits: js libraries and plugins-->
     <script async src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script async src="assets/js/bootstrap.bundle.min.js"></script>
     <script async src="assets/js/bs-custom-file-input.min.js"></script>
     <script async src="assets/js/simplebar.min.js"></script>
@@ -348,7 +349,6 @@
     <!-- Main theme script-->
     <script async src="assets/js/theme.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function(event) {
         $("#alert").hide();
         var form = document.getElementById("sub-form");
         $("#sub-form").submit(function(event) {
@@ -380,7 +380,6 @@
               form.reset();
             });
         });
-      });
     </script>
   </body>
 </html>
