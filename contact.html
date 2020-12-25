@@ -328,7 +328,7 @@
           formData.append('phone', $('input[name=phone]').val());
           formData.append('company', $('input[name=company]').val());
           formData.append('subject', $('input[name=subject]').val());
-          formData.append('message', $('input[name=message]').val());
+          formData.append('message', $('textarea[name=message]').val());
           $.ajax({
               type: 'POST',
               url: 'https://asia-south1-adityakarnik-com.cloudfunctions.net/contact_form',
