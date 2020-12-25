@@ -172,21 +172,38 @@
     <main class="cs-page-wrapper">
       <!-- Navbar Floating light for Index page only-->
       <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
-      <header class="cs-header navbar navbar-expand-lg navbar-dark navbar-floating navbar-sticky">
+      <header class="cs-header navbar navbar-expand-lg navbar-light bg-light navbar-box-shadow navbar-sticky" data-scroll-header="">
         <div class="container px-0 px-xl-3">
+          <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
-            <img class="d-none d-lg-block" width="153" src="assets/images/logo.png" alt="aditya karnik">
+            <img class="d-none d-lg-block" width="153" src="assets/images/logo-dark.png" alt="aditya karnik">
             <img class="d-lg-none" width="58" src="assets/images/logo-icon.png" alt="aditya karnik">
             <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
-              <a class="btn btn-primary" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+              <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
                 <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
               </a>
+            </div>
+            <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
+              <div class="cs-offcanvas-cap navbar-box-shadow">
+                <h5 class="mt-1 mb-0">Menu</h5>
+                <button class="close lead" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu"><span aria-hidden="true">×</span></button>
+              </div>
+              <div class="cs-offcanvas-body">
+                <!-- Menu-->
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown dropdown-mega"><a class="nav-link" href="/" >Home</a></li>
+                  <li class="nav-item dropdown dropdown-mega"><a class="nav-link" href="/blog">Blog</a></li>
+                  <li class="nav-item dropdown dropdown-mega active"><a class="nav-link" href="/contact">Contact</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </header>
       <!-- Page content-->
-      <section class="position-relative bg-dark overflow-hidden pt-7 pb-lg-7">
+      <section class="position-relative bg-dark overflow-hidden">
         <div class="typeform-widget" data-url="https://form.typeform.com/to/h4JRGDFY" style="width: 100%; height: 600px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> <div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;"> powered by <a href="https://admin.typeform.com/signup?utm_campaign=h4JRGDFY&utm_source=typeform.com-01EEAJ1J5811011PMEBF7C4V2W-free&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN" style="color: #999" target="_blank">Typeform</a> </div>
       </section>
       <!-- Inner Pages-->
@@ -209,7 +226,7 @@
           </div>
           <div class="col-lg-6 col-md-4 pb-4 text-center">
             <p class="font-size-lg text-center mb-1"><span class="text-light mr-2">Take a survey?</span><b><u><a href="/survey" target="_blank" rel="noopener">Let me know</a></u></b></p>
-            <p class="font-size-lg text-center mb-1"><span class="text-light mr-2">Interested to talk to me?</span><b><u><a href="#" target="_blank" rel="noopener">Send me a message</a></u></b></p>
+            <p class="font-size-lg text-center mb-1"><span class="text-light mr-2">Interested to talk to me?</span><b><u><a href="/contact" target="_blank" rel="noopener">Send me a message</a></u></b></p>
             <p class="font-size-lg text-center mb-1"><span class="text-light mr-2">Want to Support my Work?</span><b><u><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></u></b></p>
           </div>
         </div>
