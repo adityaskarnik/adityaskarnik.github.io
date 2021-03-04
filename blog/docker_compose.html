@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Docker Compose Basic Tutorial | Aditya Karnik</title>
+        <!-- SEO Meta Tags-->
+        <meta name="description" content="Introduction and Overview of Compose. Running Multi-Container Application with Docker Compose, create and start using one command. Deploy on local system or cloud">
+        <meta name="keywords" content="documentation, docs, docker, compose, orchestration, containers">
+        <meta name="author" content="Aditya Karnik">
+        <!-- Viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Ubuntu -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet preload prefetch" as="font" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" crossorigin="anonymous">
+        <link rel="stylesheet preload prefetch" as="font" href="assets/font/Marvelous-Script-Demo.otf" crossorigin="anonymous">
+        <link rel="preload"
+            as="style"
+            onload="this.rel = 'stylesheet'" href="../assets/font/font-awesome.min.css">
+        <link rel="preload"
+            as="style"
+            onload="this.rel = 'stylesheet'" href="../assets/font/font-awesome.css">
+        <!-- Favicon and Touch Icons-->
+        <link rel="apple-touch-icon" sizes="57x57" href="../assets/images/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="../assets/images/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="../assets/images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="../assets/images/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="../assets/images/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="../assets/images/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="../assets/images/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="../assets/images/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="../assets/images/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
+        <link rel="manifest" href="../assets/images/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="manifest" href="../assets/images/logo/site.webmanifest">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <style>
+            @font-face {
+            font-family: Marvelous-Script-Demo;
+            font-display: swap;
+            src:url("..\\assets\\font\\Marvelous-Script-Demo.otf");
+            }
+            .logo-text {
+            font-family: Marvelous-Script-Demo;
+            font-size: 320%;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            color: #ffc602;
+            font-display: swap;
+            }
+            * {
+            font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
+            }
+            body {
+            font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
+            }
+            .cs-page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+            }
+            .cs-page-loading.active {
+            opacity: 1;
+            visibility: visible;
+            }
+            .cs-page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 0;
+            }
+            .cs-page-loading.active > .cs-page-loading-inner {
+            opacity: 1;
+            }
+            .cs-page-loading-inner > span {
+            display: block;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #737491;
+            font-display: swap;
+            }
+            .cs-page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            border: .15em solid #766df4;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+            }
+            @-webkit-keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            @keyframes spinner {
+            100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            iframe {
+            overflow:hidden;
+            }
+            code {
+            font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
+            }
+            pre {
+            font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
+            }
+            li.L0, li.L1, li.L2, li.L3,
+            li.L5, li.L6, li.L7, li.L8 {
+            list-style-type: decimal !important;
+            }
+        </style>
+        <script async src="https://use.fontawesome.com/449fc92c63.js"></script>
+        <!-- Vendor Styles-->
+        <link rel="stylesheet preload" as="style" media="screen" href="../assets/css/simplebar.min.css">
+        <link rel="stylesheet preload" as="style" media="screen" href="../assets/css/tiny-slider.css">
+        <link rel="stylesheet preload" as="style" media="screen" href="../assets/css/lightgallery.min.css">
+        <!-- Main Theme Styles + Bootstrap-->
+        <link rel="stylesheet preload" as="style" media="screen" href="../assets/css/theme.min.css">
+        <script async src="../assets/js/run_prettify.js?lang=py&amp;skin=sunburst"></script>
+        <!-- Google analytics -->
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+        <!-- Global site tag (gtag.js) - Google Ads: 942098851 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-942098851"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'AW-942098851');
+        </script>
+        <!-- Event snippet for Website traffic conversion page -->
+        <script>
+            gtag('event', 'conversion', {'send_to': 'AW-942098851/xQJACJqMsO0BEKOTncED'});
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'UA-173927461-1');
+        </script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MWL6PRR');
+        </script>
+        <!-- End Google Tag Manager -->
+    </head>
+    <!-- Body -->
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWL6PRR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <!-- Global site tag (gtag) - Google Ads: 942098851 --> <amp-analytics type="gtag" data-credentials="include"> <script type="application/json"> { "vars": { "gtag_id": "AW-942098851", "config": { "AW-942098851": { "groups": "default" } } }, "triggers": { "C_JVmPciA7KpY": { "on": "visible", "vars": { "event_name": "conversion", "send_to": ["AW-942098851/xQJACJqMsO0BEKOTncED"] } }} } </script> </amp-analytics>
+        <!-- Page loading spinner-->
+        <main class="cs-page-wrapper">
+            <!-- Navbar Floating light for Index page only-->
+            <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
+            <header class="cs-header navbar navbar-expand-lg navbar-light bg-light navbar-box-shadow navbar-sticky" data-scroll-header="">
+                <div class="container px-0 px-xl-3">
+                    <button class="navbar-toggler ml-n2 mr-2" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand order-lg-1 mx-auto ml-lg-0 pr-lg-2 mr-lg-4" href="/">
+                    <img class="lazyload d-none d-lg-block" width="153" src="../assets/images/logo-dark.png" alt="aditya karnik">
+                    <img class="d-lg-none" width="58" src="../assets/images/logo-icon.png" alt="aditya karnik">
+                    <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
+                        <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                        <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
+                        </a>
+                    </div>
+                    <div class="cs-offcanvas-collapse order-lg-2" id="primaryMenu">
+                        <div class="cs-offcanvas-cap navbar-box-shadow">
+                            <h5 class="mt-1 mb-0">Menu</h5>
+                            <button class="close lead" type="button" data-toggle="offcanvas" data-offcanvas-id="primaryMenu"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="cs-offcanvas-body">
+                            <!-- Menu-->
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="/" >Home</a></li>
+                                <li class="nav-item dropdown dropdown-mega"><a class="nav-link dropdown-toggle" href="/blog">Blog</a></li>
+                                <li class="nav-item dropdown dropdown-mega"><a class="nav-link" href="/contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Page content-->
+            <section class="container">
+                <h1 class="h1 pt-4 pt-md-5 mt-2">Docker and Docker Compose</h1>
+                <div class="d-sm-flex alitgn-itams-center pt-3 font-size-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="text-nowrap text-muted mr-3"><i class="fa fa-calendar mr-1"></i><span>Mar 15, 2021</span></div>
+                        <div class="text-nowrap text-muted"><i class="fa fa-tag mr-1"></i><span>Virtualization</span></div>
+                    </div>
+                    <div class="col-md-10 order-md-2 text-md-right mb-3">
+                        <ul class="list-inline font-size-sm mb-0">
+                            <a class="social-btn sb-outline sb-facebook mr-2 my-2" href="https://www.facebook.com/sharer/sharer.php?u=https://adityakarnik.com/blog/docker_compose">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="social-btn sb-outline sb-twitter mr-2 my-2" href="https://twitter.com/intent/tweet?text=An easy tutorial to get you started with ChatBot Web API https://adityakarnik.com/blog/docker_compose @aditya_karnik #chatbotrasa">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="social-btn sb-outline sb-google mr-2 my-2" href="https://www.linkedin.com/shareArticle?mini=true&url=https://adityakarnik.com/blog/docker_compose&title=&summary=&source=">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a class="social-btn sb-outline sb-pinterest mr-2 my-2" href="https://pinterest.com/pin/create/button/?url=https://adityakarnik.com/blog/docker_compose&media=&description=">
+                                <i class="fa fa-pinterest"></i>
+                            </a>
+                            <a class="social-btn sb-outline sb-whatsapp my-2" href="whatsapp://send?text=https://adityakarnik.com/blog/docker_compose" data-action="share/whatsapp/share">
+                                <i class="fa fa-whatsapp"></i>
+                            </a>
+                        </ul>
+                      </div>
+                </div>
+            </section>
+        </main>
+        <footer class="cs-footer bg-dark pt-5 pt-md-6">
+            <div class="container pt-3 pt-md-0">
+                <div class="row pb-3">
+                    <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4"><a class="d-block mb-3" href="/" style="width: 153px;"><img class="lazyload" src="../assets/images/logo.png" alt="adityakarnik"></a>
+                    <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://instagram.com/adityakarnik" target="_blank" rel="noopener">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:me@adityakarnik.com" target="_blank" rel="noopener">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </a>
+                    </div>
+                </div>
+                <p class="logo-text">“Nothing is as important as passion. No matter what you want to do with your life, be passionate.” —Jon Bon Jovi</p>
+                <hr class="border-light">
+                <div class="row align-items-center my-3 pt-4">
+                    <div class="col-md-6 order-md-2 text-md-right mb-3">
+                    <ul class="list-inline font-size-sm mb-0">
+                        <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/contact" target="_blank" rel="noopener">Contact</a></li>
+                        <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></li>
+                        <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/survey" target="_blank" rel="noopener">Survey</a></li>
+                    </ul>
+                    </div>
+                    <div class="col-md-6 order-md-1 mb-3">
+                        <p class="font-size-sm mb-0"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+                    </div>
+                </div>
+            </div>
+          </footer>
+          <button class="btn btn-primary btn-sm cs-sidebar-toggle" type="button" data-toggle="offcanvas" data-offcanvas-id="blog-sidebar"><i class="fe-sidebar font-size-base mr-2"></i>Sidebar</button>
+        <!-- Back to top button--><a class="btn-scroll-top" href="#top" data-scroll=""><span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+        <!-- Vendor scrits: js libraries and plugins-->
+        <script>
+            window.onload = function () {
+                // <link rel="stylesheet" href="../assets/font/font-awesome.min.css">
+                // <link rel="stylesheet" href="../assets/font/font-awesome.css">
+            }
+        </script>
+        <script async src="assets/js/jquery-3.5.1.min.js"></script>
+        <script async src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script async src="../assets/js/bs-custom-file-input.min.js"></script>
+        <script async src="../assets/js/simplebar.min.js"></script>
+        <script async src="../assets/js/smooth-scroll.polyfills.min.js"></script>
+        <script async src="../assets/js/parallax.min.js"></script>    
+        <script async src="../assets/js/tiny-slider.js"></script>
+        <script async src="../assets/js/lightgallery.min.js"></script>
+        <script async src="../assets/js/lg-video.min.js"></script>
+        <script async src="../assets/js/lg-zoom.min.js"></script>
+        <script async src="../assets/js/lg-fullscreen.min.js"></script>
+        <script src="../assets/js/lazysizes.min.js" async></script>
+        <!-- Main theme script-->
+        <script async src="../assets/js/theme.min.js"></script>
+    </body>
+</html>
