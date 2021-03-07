@@ -255,11 +255,59 @@
             </section>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 cs-sidebar pt-2 pt-lg-5 pb-lg-5 order-lg-1">
-                        <img src="../assets/images/docker.svg" alt="Docker Image"/>
+                    <div class="col-lg-5 cs-sidebar pt-2 pt-lg-5 pb-lg-5 order-lg-1">
+                        <img src="../assets/images/docker.png" alt="Docker Image"/>
                     </div>
-                    <div class="col-lg-8 cs-content pt-5 pt-lg-5 order-lg-2">
-                        
+                    <div class="col-lg-7 cs-content pt-5 pt-lg-5 order-lg-2">
+                        <h5>Shoot</h5>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Imagine, you have an application running on your system and a database on a different server. Did you imagine? Right, now lets say you need to deploy it on a live server, on AWS or GCP or Azure, how exciting, right?</p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Let me give you a bigger picture, you need to take all the steps you did to setup your application or you have multiple servers where you will need to setup this application. Same number of steps again and again. Darn it.</p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Similarly you make changes to the now running application. Won't you think it will be too troublesome to update it. </p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Not just that, the environment settings, application stack you use. Tools that are required need to be ready before deploying. So much complexity, the architecture.</p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">The biggest challenge, "IT WORKS ON MY SYSTEM" 🤷</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 py-4 mb-2 mb-sm-0 pb-sm-5">
+                        <h5>Okay, I get it</h5>
+                        <p class="py-1 font-size-lg mb-4 pb-2">If I may suggest, Hello Docker!</p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Lot of resources on the internet will tell you, why do you need to use Docker if you are developer; A very few of them:</p>
+                        <ol>
+                            <li>Portability</li>
+                            <li>Scalability</li>
+                            <li>Faster configuration</li>
+                            <li>CI/CD</li>
+                            <li>Logging at its best.</li>
+                        </ol>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Without wasting anymore time, </p>
+                        <h5>Let's Dockerize</h5>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Firstly, we shall understand how to setup a Single container using <code style="font-family: Ubuntu;">Docker</code> and<code style="font-family: Ubuntu;"> Dockerfile</code></p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Following are the command you will need to run on your command prompt</p>
+                        <p>To list of all the local images</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker images</code>
+                        <p>The <code style="font-family: Ubuntu;">docker ps</code> command only shows running containers by default.</p>
+                        <p>To see all containers, use the -a (or --all) flag:</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker ps -a</code>
+                        <p>To create a container and kick start it</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker run -it -v {/path/to/your/project/directory/or/home/directory}:{docker/container/path/} -p 9012:9012 {image_name}</code>
+                        <ol>
+                            <li><code style="font-family: Ubuntu;">-i</code> - interactive shell, as in command line access to the container</li>
+                            <li><code style="font-family: Ubuntu;">-t</code> - terminal, or tty</li>
+                            <li><code style="font-family: Ubuntu;">-v</code> - the volume path - the first in the host path, that is the local system path that you want the docker container to map to : - the next part is the path inside the container that you wish to login to directly</li>
+                            <li><code style="font-family: Ubuntu;">-p</code> - this is the port forwarding for the container from the local or host machine.</li>
+                            <li><code style="font-family: Ubuntu;">{image_name}</code> - is the docker image that you want to run and get access</li>
+                        </ol>
+                        <p class="py-1 font-size-lg mb-4 pb-2">After successfully running this command you will get inside the container to the specified path. You can either <code style="font-family: Ubuntu;">exit</code> the container and stop it or you can <code style="font-family: Ubuntu;">Ctrl+D</code> to leave it running and exit. To make this sure you need to run the previous <code style="font-family: Ubuntu;">docker ps</code> to check if it is running</p>
+                        <p>To start a container that is in Existed state, First you need get the CONTAINER ID</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker ps -a</code>
+                        <p>Check the output:</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">CONTAINER ID&emsp;  IMAGE&emsp;   COMMAND&emsp;     CREATED&emsp;&emsp;STATUS&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;PORTS&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;NAMES
+                            <br>29a462eea79c&emsp;     ubuntu&emsp;      "/bin/bash"&emsp;     4 days ago&emsp;      Exited (255) 3 days ago&emsp;     0.0.0.0:9010-9012->9010-9012/tcp&emsp;    ubuntu</code>
+                        <p>Use the CONTAINER ID along with it to start the container</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker start 29a462eea79c</code>
+                        <p>To get access to the started or already running container you need to:</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker attach 29a462eea79c</code>
+                        <ul><li>This will lead you the same thing as you get after use the <code style="font-family: Ubuntu;">docker run</code></li></ul>
                     </div>
                 </div>
             </div>
