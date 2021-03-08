@@ -151,7 +151,6 @@
         <link rel="stylesheet preload" as="style" media="screen" href="../assets/css/lightgallery.min.css">
         <!-- Main Theme Styles + Bootstrap-->
         <link rel="stylesheet preload" as="style" media="screen" href="../assets/css/theme.min.css">
-        <script async src="../assets/js/run_prettify.js?lang=py&amp;skin=sunburst"></script>
         <!-- Google analytics -->
         <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
         <!-- Global site tag (gtag.js) - Google Ads: 942098851 -->
@@ -305,9 +304,78 @@
                             <br>29a462eea79c&emsp;     ubuntu&emsp;      "/bin/bash"&emsp;     4 days ago&emsp;      Exited (255) 3 days ago&emsp;     0.0.0.0:9010-9012->9010-9012/tcp&emsp;    ubuntu</code>
                         <p>Use the CONTAINER ID along with it to start the container</p>
                         <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker start 29a462eea79c</code>
-                        <p>To get access to the started or already running container you need to:</p>
-                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker attach 29a462eea79c</code>
+                        <a name="attach"></a><p>To get access to the started or already running container you need to:</p>
+                        </a><code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker attach 29a462eea79c</code>
                         <ul><li>This will lead you the same thing as you get after use the <code style="font-family: Ubuntu;">docker run</code></li></ul>
+                        <p>To stop a running container you need to:</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker stop 29a462eea79c</code>
+                        <p>To delete the created docker container you need to:</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker rm 29a462eea79c</code>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Lets consider you need to create a container, customised for your own project. You have to create a <strong>Dockerfile</strong> which will have a basic setup ready for you to use when you login into that container. Giving an example of installing and running a basic Python application</p>
+                        <p>Open a new file named <code style="font-family: Ubuntu;">Dockerfile</code> in any Editor. You need not give any dot extension to this file. Paste the content given below:</p>
+                        <pre style="font-family: Ubuntu;"><code># Download base image ubuntu 18.04
+FROM ubuntu:18.04
+
+# Most important of all give this your own name
+MAINTAINER adityakarnik
+
+# This will give you all the latest updates and required packages to start
+RUN apt-get update \
+    && apt-get install -my wget gnupg \
+    && apt-get install -y --no-install-recommends \
+        apt-utils \
+        ca-certificates \
+        apt-transport-https \
+        jq \
+        numactl \
+&& rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update
+
+# Installing python and its dependencies
+RUN apt-get install -y python-pip python-dev build-essential
+
+# Copy the local folder of your app to docker container
+# Consider this app folder in placed in the same folder as your Dockerfile
+COPY app/ /app
+
+# Navigate to yoru app directory
+WORKDIR /app
+
+# Install you application dependencies
+RUN pip install -r requirements.txt
+
+# This will the command run when you start your container
+ENTRYPOINT ["python"]
+
+# Like "python app.py", this will run when you start your container
+CMD ["app.py"]</code></pre>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Let's understand what have done here</p>
+                        <ol>
+                            <li><code style="font-family: Ubuntu;">FROM</code> - Choose a pre-built base image from which you wish to start working on. For this example I selected the Ubuntu image</li>
+                            <li><code style="font-family: Ubuntu;">MAINTAINER</code> - The author of the yaml file</li>
+                            <li><code style="font-family: Ubuntu;">RUN</code> - This is similar to when you execute a command on your command prompt. We execute a few pre-requisites, fetch the latest packages with <pre style="font-family: Ubuntu;"><code>apt-get update</code></pre>. And lastly we install the required python tool</li>
+                            <li><code style="font-family: Ubuntu;">COPY</code> - This will place the same content you have in the given folder, which is your code project files, ready to run. It states that the whole content from /app needs to be synced with the app/ folder inside the container, once created.</li>
+                            <li><code style="font-family: Ubuntu;">WORKDIR</code> - This is like you navigate to the folder ready to run the project. Just like your <pre style="font-family: Ubuntu;"><code>change directory (cd)</code></pre> command.</li>
+                            <li><code style="font-family: Ubuntu;">RUN</code> - next it will install the packages from the requirement.txt file with help of pip - package installer program of python</li>
+                            <li><code style="font-family: Ubuntu;">ENTRYPOINT</code> - is the command or parent command that you wish to run when you start the container, in this case <pre style="font-family: Ubuntu;"><code>python</code></pre></li>
+                            <li><code style="font-family: Ubuntu;">CMD</code> - this is sub command, child command that you wish to execute after he python command above. Like <pre style="font-family: Ubuntu;"><code>python app.py</code></pre>These are a list of command, where each command is separated with a space.</li>
+                        </ol>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Next we will run and complete the execution and fire up the container</p>
+                        <p>Building the image from Dockerfile</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker build --no-cache -t python .</code>
+                        <ul><li>We gave the name, python to the image, you can choose whatever you wish to</li></ul>
+                        <p>Start the container from the image that is created.</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker run -p 5000:5000 --name python python</code>
+                        <ul><li>Here we have exposed the port number 5000 inside out the container for accessing the application outside the container</li></ul>
+                        <p>Now you can check and confirm your application will be running on port 5000. <a href="#attach">To attach the container you can check the previous command</a></p>
+                        <p>And this is how we run a dockerfile for single application execution. Let's also check how to stop and remove the containers</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">sudo docker rm $(sudo docker ps -a -q) && sudo docker rmi $(sudo docker images -q)</code>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Now consider you have made a some changes to your environment and you need to deploy the same currently working docker to another system or make a clone of it as test environment. You will need to commit the docker</p>
+                        <p>Committing the current state of the container:</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker commit 4cb998fee815 [give_it_a_name]</code>
+                        <p>Creating a zip file of the container:</p>
+                        <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker save -o [file_name.tar] [the_given_name]</code>
                     </div>
                 </div>
             </div>
