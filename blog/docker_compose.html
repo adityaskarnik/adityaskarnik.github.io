@@ -376,6 +376,29 @@ CMD ["app.py"]</code></pre>
                         <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker commit 4cb998fee815 [give_it_a_name]</code>
                         <p>Creating a zip file of the container:</p>
                         <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker save -o [file_name.tar] [the_given_name]</code>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Well, congratulations, now you can create your own single image container using Dockerfile. <a class="nav-link-style nav-link-style" href="https://docs.docker.com/engine/reference/builder/#environment-replacement" target="_blank" rel="noopener">For more commands and references in Dockerfile refer here</a></p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Let's move to our next section</p>
+                        <h5>Docker Compose</h5>
+                        <p class="py-1 font-size-lg mb-4 pb-2">We will quickly understand the What Why How.</p>
+                        <ol>
+                            <li><p class="py-1 font-size-lg mb-4 pb-2">Docker Compose is a next step in running a container, the only difference here is that you can fire up multiple containers at a time, where as with Dockerfile you can have only a single containers. With the use of a YAML file, setup the server for your application, with just a single command.</p></li>
+                            <li><p class="py-1 font-size-lg mb-4 pb-2">Call your imaginative powers again and think, if you had multi-server application, say a Application server, Database container, Worker where all the heavy lifting is done and Log server. How easy will it be to manage all of it from one file and with only a single command. Fancy? And it does work in all the systems take your test environment for example, once tested and working fine you will need to replicate the same environment on production.</p></li>
+                            <li><p class="py-1 font-size-lg mb-4 pb-2">One single command from the directory where you have a your <code style="font-family: Ubuntu;">docker-compose.yml</code> file, you run <code style="font-family: Ubuntu;">docker compose up</code> and voila, you have it all in a couple of minutes ready. Similar to Dockerfile you will have to define a few steps, the only difference is that, you will make use of the Dockerfile in the compose file or an pre-build image.</p></li>
+                        </ol>
+                        <p class="py-1 font-size-lg mb-4 pb-2">The sample file looks something like this:</p>
+                        <pre style="font-family: Ubuntu;"><code>version: 3.8
+services:
+    web:
+        build: .
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/code
+            - log:/var/log
+        links:
+            - rabbitmq
+    rabbitmq:
+        image: "rabbitmq:3-management"</code></pre>
                     </div>
                 </div>
             </div>
