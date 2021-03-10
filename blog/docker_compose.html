@@ -279,7 +279,8 @@
                             <li>Logging at its best.</li>
                         </ol>
                         <p class="py-1 font-size-lg mb-4 pb-2">Without wasting anymore time, </p>
-                        <h5>Let's Dockerize</h5>
+                        <h4>Let's Dockerize</h4>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Hoping you have already installed Docker on your system, we will begin, If not you can quickly install it from <a class="nav-link-style nav-link-style" href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">here</a></p>
                         <p class="py-1 font-size-lg mb-4 pb-2">Firstly, we shall understand how to setup a Single container using <code style="font-family: Ubuntu;">Docker</code> and<code style="font-family: Ubuntu;"> Dockerfile</code></p>
                         <p class="py-1 font-size-lg mb-4 pb-2">Following are the command you will need to run on your command prompt</p>
                         <p>To list of all the local images</p>
@@ -378,7 +379,7 @@ CMD ["app.py"]</code></pre>
                         <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">docker save -o [file_name.tar] [the_given_name]</code>
                         <p class="py-1 font-size-lg mb-4 pb-2">Well, congratulations, now you can create your own single image container using Dockerfile. <a class="nav-link-style nav-link-style" href="https://docs.docker.com/engine/reference/builder/#environment-replacement" target="_blank" rel="noopener">For more commands and references in Dockerfile refer here</a></p>
                         <p class="py-1 font-size-lg mb-4 pb-2">Let's move to our next section</p>
-                        <h5>Docker Compose</h5>
+                        <h3>Docker Compose</h3>
                         <p class="py-1 font-size-lg mb-4 pb-2">We will quickly understand the What Why How.</p>
                         <ol>
                             <li><p class="py-1 font-size-lg mb-4 pb-2">Docker Compose is a next step in running a container, the only difference here is that you can fire up multiple containers at a time, where as with Dockerfile you can have only a single containers. With the use of a YAML file, setup the server for your application, with just a single command.</p></li>
@@ -399,6 +400,64 @@ services:
             - rabbitmq
     rabbitmq:
         image: "rabbitmq:3-management"</code></pre>
+                        <p class="py-1 font-size-lg mb-4 mt-4 pb-2">I suppose you already have Docker Compose on your system, we will begin, If not you can quickly install it from <a class="nav-link-style nav-link-style" href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener">here</a></p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">Setting some realistic goals to understand Compose, lets have a problem statement in mind.</p>
+                        <p>
+                            <ul>
+                                <li>We have a Django application which runs on port 8100</li>
+                                <li>This application has another process which runs Celery tasks in background to continuously check some updates</li>
+                                <li>There is a postgres database running separately</li>
+                                <li>There is rabbitmq, required for queueing purpose</li>
+                                <li>Also it has Elasticsearch and Kibana running for pushing data and logs, both running independently</li>
+                            </ul>
+                        </p>
+                        <p>Sounds fun? Let's get on with it.</p>
+                        <p>Create a blank <code style="font-family: Ubuntu;">docker-compose.yml</code></p>
+                        <p>First thing you define is the version number, depending on your your Docker engine that you have installed you will need to use that version for the compose file. 
+                            This is just the syntax format, difference in most versions, not all necessarily.</p>
+                            <pre style="font-family: Ubuntu;"><code>version: 3.8</code></pre>
+                        <p>Now your file looks something like this</p>
+                        <p>Next we define the Services section which is basically the different containers you wish to run, in our case six different containers with their own process setup</p>
+                        <p>Name the service with something that it represents or does. Our first service is the Django application, we will define it's name as <code style="font-family: Ubuntu;">web</code>. As stated before we will need to create a <code style="font-family: Ubuntu;">Dockerfile</code> and state it in build.</p>
+                        <p>Let's create a Dockerfile</p>
+                        <pre style="font-family: Ubuntu;"><code>FROM python:3.7
+
+MAINTAINER adityakarnik
+
+COPY . /app/
+
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8100</code></pre>
+                        <p>Nothing serious, a simple file with simple syntax we discussed before, the app is already prepared and we will not go into the app code, as its off topic.</p>
+                        <p>Next we get back to the compose file, stating what we have now, the Dockerfile and what is required for it.</p>
+                        <pre style="font-family: Ubuntu;"><code>version: 3.8
+services:
+  web_app:  # 1
+    build:  # 2
+      context: .    # 3
+      dockerfile: Dockerfile # 4
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8100"   # 5
+    volumes: # 6
+      - .:/app
+      - /root/db/:/root/db/
+    ports:  # 7
+      - "8100:8100"
+    environment:    # 8
+      APP_PASSWORD: "${APP_PASSWORD}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      ELASTIC_PASSWORD: "${ELASTIC_PASSWORD}"
+    depends_on: # 9
+      - expense_worker
+      - elasticsearch
+    container_name: django_app # 10
+    networks:   # 11
+      expense_network:  # 12
+        ipv4_address: "10.10.10.2"
+    restart:    # 13
+      always    # 14</code></pre>
                     </div>
                 </div>
             </div>
