@@ -450,14 +450,36 @@ services:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
       ELASTIC_PASSWORD: "${ELASTIC_PASSWORD}"
     depends_on: # 9
-      - expense_worker
+      - web_worker
       - elasticsearch
     container_name: django_app # 10
     networks:   # 11
-      expense_network:  # 12
+      web_network:  # 12
         ipv4_address: "10.10.10.2"
     restart:    # 13
       always    # 14</code></pre>
+                        <p>WOW!! There was just a single version line in there, now its like a hundreds of line of code? Yup, I have just created a that for you, we will look at each line in detail</p>
+                        <p><ol>
+                            <li><code style="font-family: Ubuntu;">web_app</code> - Is the name of the service as an identifier this has to be unique. It should generally represent the operation/process is about.</li>
+                            <li><code style="font-family: Ubuntu;">build</code> - represents the image or the Dockerfile that you created earlier. This can just be a <code style="font-family: Ubuntu;">.</code> which tell that you need to pick a Dockerfile from the current folder.</li>
+                            <li><code style="font-family: Ubuntu;">context</code> - is an optional key. It specifies where it should find the Dockerfile</li>
+                            <li><code style="font-family: Ubuntu;">Dockerfile</code> - name of the file you have created, the Dockerfile is standard file name. In case if you have a test environment dockerfile, you can name it something like <code style="font-family: Ubuntu;">Dockerfile.test</code></li>
+                            <li><code style="font-family: Ubuntu;">command</code> - key name clearly states what it does. It a command that you wish to execute once the container is up and running</li>
+                            <li><code style="font-family: Ubuntu;">volumes</code> - key mounts the project directory (current directory) on the host to /code inside the container, allowing you to modify the code on the fly, without having to rebuild the image.</li>
+                            <li><code style="font-family: Ubuntu;">ports</code> - Exposes container ports for mapping. This allows the container and the host to communicate to each other over this port</li>
+                            <li><code style="font-family: Ubuntu;">environment</code> - key sets the APP_PASSWORD, POSTGRES_PASSWORD and ELASTIC_PASSWORD environment variable, which tells the application to fetch wherever required these keys from its environment variable collection</li>
+                            <li><code style="font-family: Ubuntu;">depends_on</code> - sets the dependencies on another containers on startup and shutdown</li>
+                            <li><code style="font-family: Ubuntu;">container_name</code> - it defines the custom container name to be provided to instead of the default auto generated value</li>
+                            <li><code style="font-family: Ubuntu;">networks</code> - this key specifier denotes the networks that containers it is attached to and what are their different address allowed for this network. The names provided in this section are to be declared in the top level Networks section as well</li>
+                            <li><code style="font-family: Ubuntu;">web_network</code> - name of the network for the current service</li>
+                            <li><code style="font-family: Ubuntu;">restart</code> - key denotes the policy it should follow once the container is terminated. There different values such as <pre style="font-family: Ubuntu;"><code>restart: "no"
+restart: always
+restart: on-failure
+restart: unless-stopped</code></pre></li>
+                        </ol></p>
+                        <p class="py-1 font-size-lg mb-2 pb-2">Now on your command line, run</p>
+                        <pre style="font-family: Ubuntu;"><code>docker compose up</code></pre>
+                        <p class="py-1 font-size-lg mt-2 mb-4 pb-2">the container will build as its the first time, start up and run</p>
                     </div>
                 </div>
             </div>
