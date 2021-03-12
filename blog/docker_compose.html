@@ -479,7 +479,194 @@ restart: unless-stopped</code></pre></li>
                         </ol></p>
                         <p class="py-1 font-size-lg mb-2 pb-2">Now on your command line, run</p>
                         <pre style="font-family: Ubuntu;"><code>docker compose up</code></pre>
-                        <p class="py-1 font-size-lg mt-2 mb-4 pb-2">the container will build as its the first time, start up and run</p>
+                        <p class="py-1 font-size-lg mt-2 mb-4 pb-2">the container will build, as its the first time, start up and run</p>
+                        <p>Let us add more services to move forward next</p>
+                        <pre><code>version: 3.8
+services:
+  web_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8100"
+    volumes:
+      - .:/app
+      - /root/db/:/root/db/
+    ports:
+      - "8100:8100"
+    environment:
+      APP_PASSWORD: "${APP_PASSWORD}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      ELASTIC_PASSWORD: "${ELASTIC_PASSWORD}"
+    depends_on:
+      - web_worker
+      - elasticsearch
+    container_name: django_app
+    networks:
+      web_network:
+        ipv4_address: "10.10.10.2"
+    restart:
+      always
+  web_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "celery worker -A payee_name -l INFO --beat --concurrency=1 -n 'main_app'"
+    volumes:
+      - .:/app
+    ports:
+      - "8200:8200"
+    environment:
+      APP_PASSWORD: "${APP_PASSWORD}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      ELASTIC_PASSWORD: "${ELASTIC_PASSWORD}"
+    links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+      - elasticsearch
+    container_name: web_worker
+    networks:
+      web_network:
+        ipv4_address: "10.10.10.3"
+    restart:
+      always
+
+  web_db:
+    image: "postgres"
+    container_name: web_db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_HOST: "web_host"
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: "web"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      POSTGRES_DB: "Web"
+      PG_DATA: "/var/lib/postgresql/data"
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+    networks:
+      web_network:
+        ipv4_address: "10.10.10.4"
+  
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    hostname: "rabbitmq"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    labels:
+      NAME: "rabbitmq"
+    container_name: rabbitmq
+    volumes:
+      - 'app_elk_data:/bitnami'
+    networks:
+      web_network:
+        ipv4_address: "10.10.10.5"
+    restart:
+      always
+
+  elasticsearch:
+    build:
+      context: ../app_elk/elasticsearch/
+      args:
+        ELK_VERSION: 7.0.1
+    volumes:
+      - ../app_elk/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - /etc/timezone:/etc/timezone
+      - ../app_elk/elasticsearch/data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx2560m -Xms2560m"
+      ELASTIC_PASSWORD: "${ELASTIC_PASSWORD}"
+      http.cors.enabled: "true"
+      http.cors.allow-origin: "*"
+    container_name: elasticsearch
+    networks:
+      web_network:
+        ipv4_address: "10.10.10.6"
+    restart:
+      always
+
+  kibana:
+    build:
+      context: ../app_elk/kibana/
+      args:
+        ELK_VERSION: 7.0.1
+    volumes:
+      - ../app_elk/kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
+      - /etc/timezone:/etc/timezone
+    ports:
+      - "5601:5601"
+    networks:
+      web_network:
+        ipv4_address: "10.10.10.7"
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    restart:
+      always
+
+  
+volumes:
+  app_elk_data:
+    external: true
+  
+networks:
+  web_network:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 10.10.10.0/16
+          gateway: 10.10.10.1</code></pre>
+                        <p class="py-1 font-size-lg mt-2 mb-4 pb-2">There, this is the complete code for the docker compose file.</p>
+                        <p class="py-1 font-size-lg mb-4 pb-2">If you go through the code you will notice there six different containers in all. Each service has similar set of keys</p>
+                        <ul>
+                            <li><code style="font-family: Ubuntu;">build</code></li>
+                            <li><code style="font-family: Ubuntu;">command</code></li>
+                            <li><code style="font-family: Ubuntu;">volumes</code></li>
+                            <li><code style="font-family: Ubuntu;">ports</code></li>
+                            <li><code style="font-family: Ubuntu;">environment</code></li>
+                            <li><code style="font-family: Ubuntu;">depends_on</code></li>
+                            <li><code style="font-family: Ubuntu;">container_name</code></li>
+                            <li><code style="font-family: Ubuntu;">networks</code></li>
+                            <li><code style="font-family: Ubuntu;">restart</code></li>
+                        </ul>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">If you take a closer look at the service <code style="font-family: Ubuntu;">web_db</code> and <code style="font-family: Ubuntu;">rabbitmq</code> you will notice a new set of key <code style="font-family: Ubuntu;">image</code></p>
+                        <p class="py-1 font-size-lg mb-2 pb-2">If you remember we had discussed this earlier that instead of build we use the key image for using already created images.</p>
+                        <p class="py-1 font-size-lg mb-2 pb-2">This is helpful in case if you don't wish to make any modifications on the existing image. Otherwise there is always the Dockerfile where you can modify as per your requirement</p>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">Next, in the bottom, if you notice there is another top level key <code style="font-family: Ubuntu;">networks</code> and <code style="font-family: Ubuntu;">volumes</code></p>
+                        <p>
+                            <ul>
+                                <li>Networks - will create and attach all the containers in given network name. It also provides all the details about the subnet and gateway and what type of networks should be created</li>
+                                <li>Volumes - creates a separate space in the host common to all the containers where you can modify the code and all the changes reflect in realtime. <br> Let's consider a scenario where you need to update your code for new features and development, in normal case you will need to recreate the image, build and re run. <br>In case of volumes you need not to that, the code mapping is already done.</li>
+                            </ul>
+                        </p>
+                        <p class="py-1 font-size-lg mt-2 mb-4 pb-2">Well, Congratulations we have covered all the major important points for you get started with your first application</p>
+                        <h5>Summarize</h5>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">Firstly we saw all the command that are required for running a pre-built image and what re most common commands you will need</p>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">We created a Dockerfile, understood the Dockerfile in detail and ran all the basic command to start and terminate the same</p>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">Exporting a running image is easy with just two commands</p>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">Next is Docker Compose, we have saw how it can be helpful while you are running a huge application and has several different dependant services</p>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">How to create a compose file and what the general keys you need to start the container</p>
+                        <p class="py-1 font-size-lg mt-2 mb-4 pb-2">The whole of the application, what it needs to do when interacting with multiple containers</p>
+                        <h5>Credits</h5>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">I would like to point out the major help I took from the github page where the ELK docker is present <a class="nav-link-style nav-link-style" target="_blank" rel="noopener" href="https://github.com/deviantony/docker-elk/blob/main/docker-compose.yml">here</a></p>
+                        <p class="py-1 font-size-lg mt-2 mb-4 pb-2"><a class="nav-link-style nav-link-style" target="_blank" rel="noopener" href="https://docs.docker.com/compose/compose-file/">Without Docker, this blog does not exists</a></p>
+                        <h5>Thank you</h5>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">The raw post is <a class="nav-link-style nav-link-style" target="_blank" rel="noopener" href="https://github.com/adityaskarnik/expense_app/wiki">here</a> and <a class="nav-link-style nav-link-style" target="_blank" rel="noopener" href="https://github.com/adityaskarnik/docker_commands">here</a> and it has taken a long time for me to come up with it</p>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">Do let me know your feedback and contact me from below links</p>
+                        <p class="py-1 font-size-lg mt-2 mb-2 pb-2">✌️</p>
                     </div>
                 </div>
             </div>
