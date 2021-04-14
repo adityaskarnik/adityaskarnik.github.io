@@ -217,36 +217,8 @@
             <div class="text-nowrap text-muted mr-3"><i class="fa fa-calendar mr-1"></i><span>Sep 6, 2020</span></div>
             <div class="text-nowrap text-muted"><i class="fa fa-tag mr-1"></i><span>Python Titbits</span></div>
           </div>
-        </div>
-      </section>
-      <div class="container">
-        <!-- Project gallery (carousel)-->
-        <section class="pt-4 mt-lg-2 pb-lg-4">
-            <div id="tns1-mw" class="tns-ovh">
-                <div class="cs-carousel cs-controls-inside">
-                    <div class="cs-carousel-inner" data-carousel-options='{"gutter": 25}'>
-                      <div>
-                        <img class="rounded-lg" src="../assets/images/slider_01.png" alt="Image"/>
-                      </div>
-                      <div>
-                        <img class="rounded-lg" src="../assets/images/slider_02.png" alt="Image"/>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-        </section>
-        <!-- Project description-->
-        <section class="py-5">
-          <div class="row pb-md-2">
-            <div class="col-md-5">
-              <h3 class="h5">Description</h3>
-              <p class="font-size-sm mb-4 pb-2">While working on our code in Jupyter Notebook we tend to forget after a while that we working, actually running some code, but there was an exception that interrupted the long running task. 😠😢<br>COMEON!!!!!! NOT FAIR<br>
-              We again run it and have to wait and watch for another iteration to check if the fix worked or did it not.<br>Such a pain. 😟<br>Why don't we think about a exception notifier. Wait, What?! Don't we already have a notifier? Ahh yes we do, but not an exception notifier.<br>
-              Well we can use them in each the cells and all that, but that's a mess in the notebook.<br>We can have an extension, in the notebook where if there was an exception, we will be notified like a normal notifier does.<br>
-              Why don't we think about a exception notifier. Wait, What?! Don't we already have a notifier that shows a notification at the end of a successful execution? Ahh yes we do, but not an <b>exception</b> notifier.</p>
-              <h3 class="h5">Tools &amp; Technologies</h3>
-              <p class="font-size-sm mb-4 pb-2">Python, Jupyter Notebook</p>
-              <h3 class="h5">Share</h3>
+          <div class="col-md-10 order-md-2 text-md-right mb-3">
+            <ul class="list-inline font-size-sm mb-0">
               <a class="social-btn sb-outline sb-facebook mr-2 my-2" href="https://www.facebook.com/sharer/sharer.php?u=https://adityakarnik.com/blog/exception_notifier">
                 <i class="fa fa-facebook"></i>
               </a>
@@ -262,28 +234,47 @@
               <a class="social-btn sb-outline sb-whatsapp my-2" href="whatsapp://send?text=Checkout this page https://adityakarnik.com/blog/exception_notifier" data-action="share/whatsapp/share">
                 <i class="fa fa-whatsapp"></i>
               </a>
-            </div>
-            <div class="col-md-7 pt-4 pt-md-0 mb-lg-4 pb-lg-2">
-              <h3 class="h5">Installation</h3>
-              <p>Activating your <code style="font-family: Ubuntu;"><a href="https://virtualenv.pypa.io/en/stable/installation.html#via-pip" style="color: crimson;">virtualenv</a></code> is the first step (Always recommended to use virtualenv)</p>
-              <article class="markdown-body entry-content container-lg" itemprop="text">
-                <pre><code style="font-family: Ubuntu;">pip install jupyter
-                </code></pre>
-                <pre><code style="font-family: Ubuntu;">pip install jupyter_contrib_nbextensions &amp;&amp; jupyter contrib nbextensions install
-                </code></pre>
-                <pre><code style="font-family: Ubuntu;">pip show jupyter_contrib_nbextensions
-                </code></pre>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the <code style="font-family: Ubuntu;">Location</code> path from the pervious command</p>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copy the <code style="font-family: Ubuntu;">exception_notifier</code> folder to</p>&nbsp;
-                <pre><code style="font-family: Ubuntu;">site-packages/jupyter_contrib_nbextensions/nbextensions/
-                </code></pre>
-                <pre><code style="font-family: Ubuntu;">jupyter contrib nbextensions install
-                </code></pre>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start up a <code style="font-family: Ubuntu;">jupyter notebook</code> and navigate to the new Nbextensions tab:</p>
-                </article>
-            </div>
+            </ul>
           </div>
-        </section>
+        </div>
+      </section>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 cs-sidebar pt-lg-2 pb-lg-2 order-lg-1">
+            <img class="rounded-lg" src="../assets/images/slider_02.png" alt="Image"/>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-9 py-4 mb-2 mb-sm-0 pb-sm-5">
+            <h5>Description</h5>
+            <p class="py-1 font-size-lg mb-2 pb-2">While working on our code in Jupyter Notebook we tend to forget after a while that we working, actually running some code, but there was an exception that interrupted the long running task. 😠😢</p>
+            <p class="py-1 font-size-lg mb-2 pb-2">COMEON!!!!!! NOT FAIR</p>
+            <p class="py-1 font-size-lg mb-2 pb-2">We again run it and have to wait and watch for another iteration to check if the fix worked or did it not.</p>
+            <p class="py-1 font-size-lg mb-2 pb-2">Such a pain. 😟</p>
+            <p class="py-1 font-size-lg mb-2 pb-2">Why don't we think about a exception notifier. Wait, What?! Don't we already have a notifier? Ahh yes we do, but not an exception notifier.</p>
+            <p class="py-1 font-size-lg mb-2 pb-2">Well we can use them in each the cells and all that, but that's a mess in the notebook.</p>
+            <p class="py-1 font-size-lg mb-2 pb-2">We can have an extension, in the notebook where if there was an exception, we will be notified like a normal notifier does.</p>
+            <p class="py-1 font-size-lg mb-2 pb-2">Why don't we think about a exception notifier. Wait, What?! Don't we already have a notifier that shows a notification at the end of a successful execution? Ahh yes we do, but not an <b>exception</b> notifier.</p>
+            <h5>Installation</h5>
+            <p class="py-1 font-size-lg mt-4 mb-4 pb-2">Activating your <code style="font-family: Ubuntu;"><a href="https://virtualenv.pypa.io/en/stable/installation.html#via-pip" style="color: crimson;">virtualenv</a></code> is the first step (Always recommended to use virtualenv)</p>
+            <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">pip install jupyter</code>
+            <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">pip install jupyter_contrib_nbextensions &amp;&amp; jupyter contrib nbextensions install</code>
+            <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">pip show jupyter_contrib_nbextensions</code>
+            <p class="py-1 font-size-lg mb-4 pb-2">Get the <code style="font-family: Ubuntu;">Location</code> path from the pervious command</p>
+            <p class="py-1 font-size-lg mb-4 pb-2">Copy the <code style="font-family: Ubuntu;">exception_notifier</code> folder to:</p>
+            <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">site-packages/jupyter_contrib_nbextensions/nbextensions/</code>
+            <p class="py-1 font-size-lg mb-4 pb-2">Then run the command to install this extension:</p>
+            <code class="row cs-sidebar col-lg-12 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">jupyter contrib nbextensions install</code>
+            <p class="py-1 font-size-lg mb-4 pb-2">Start up a <code style="font-family: Ubuntu;">jupyter notebook</code> and navigate to the new Nbextensions tab (Image below):</p>
+            <img class="rounded-lg" src="../assets/images/slider_01.png" alt="Image"/>
+            <p class="py-1 font-size-lg mt-4 mb-4 pb-2">Select the <code style="font-family: Ubuntu;">Exception Notifier</code> extension.</p>
+            <p class="py-1 font-size-lg mb-4 pb-2">Once done with that, you can start your work with an error code and Voila!</p>
+            <h5>Credits</h5>
+            <p class="py-1 font-size-lg mt-4 mb-4 pb-2">We installed the extension with the help of <a class="nav-link-style nav-link-style" target="_blank" rel="noopener" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">Jupyter Contrib Extensions</a></p>
+            <p class="py-1 font-size-lg mt-4 mb-4 pb-2"><a class="nav-link-style nav-link-style" target="_blank" rel="noopener" href="https://jupyter.org/">Jupyter notebook</a>, the best tool out there, without which we wouldn't achieve alot of things.</p>
+            
+          </div>
+        </div>
       </div>
       <!-- Inner Pages-->
       
