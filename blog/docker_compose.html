@@ -386,7 +386,7 @@ CMD ["app.py"]</code></pre>
                         <ol>
                             <li><p class="py-1 font-size-lg mb-4 pb-2">Docker Compose is a next step in running a container, the only difference here is that you can fire up multiple containers at a time, where as with Dockerfile you can have only a single containers. With the use of a YAML file, setup the server for your application, with just a single command.</p></li>
                             <li><p class="py-1 font-size-lg mb-4 pb-2">Call your imaginative powers again and think, if you had multi-server application, say a Application server, Database container, Worker where all the heavy lifting is done and Log server. How easy will it be to manage all of it from one file and with only a single command. Fancy? And it does work in all the systems take your test environment for example, once tested and working fine you will need to replicate the same environment on production.</p></li>
-                            <li><p class="py-1 font-size-lg mb-4 pb-2">One single command from the directory where you have a your <code style="font-family: Ubuntu;">docker-compose.yml</code> file, you run <code style="font-family: Ubuntu;">docker compose up</code> and voila, you have it all in a couple of minutes ready. Similar to Dockerfile you will have to define a few steps, the only difference is that, you will make use of the Dockerfile in the compose file or an pre-build image.</p></li>
+                            <li><p class="py-1 font-size-lg mb-4 pb-2">One single command from the directory where you have a your <code style="font-family: Ubuntu;">docker-compose.yml</code> file, you run <code style="font-family: Ubuntu;">docker-compose up</code> and voila, you have it all in a couple of minutes ready. Similar to Dockerfile you will have to define a few steps, the only difference is that, you will make use of the Dockerfile in the compose file or an pre-build image.</p></li>
                         </ol>
                         <p class="py-1 font-size-lg mb-4 pb-2">The sample file looks something like this:</p>
                         <pre style="font-family: Ubuntu;"><code>version: 3.8
@@ -480,7 +480,7 @@ restart: on-failure
 restart: unless-stopped</code></pre></li>
                         </ol></p>
                         <p class="py-1 font-size-lg mb-2 pb-2">Now on your command line, run</p>
-                        <pre style="font-family: Ubuntu;"><code>docker compose up</code></pre>
+                        <pre style="font-family: Ubuntu;"><code>docker-compose up</code></pre>
                         <p class="py-1 font-size-lg mt-2 mb-4 pb-2">the container will build, as its the first time, start up and run</p>
                         <p>Let us add more services to move forward next</p>
                         <pre><code>version: 3.8
