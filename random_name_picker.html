@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Random Name Picker for Lucky Draw</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Simple HTML5 random name picker for picking lucky draw winner using Web Animations and AudioContext API.">
+    <meta name="keywords"
+        content="lucky draw, lucky draw online, lucky draw app, random name picker, name picker, aditya karnik">
+    <meta name="author" content="Aditya Karnik">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <!-- Font Ubuntu -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet preload prefetch" as="font"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" crossorigin="anonymous">
+    <link rel="stylesheet preload prefetch" as="font" href="assets/font/Marvelous-Script-Demo.otf"
+        crossorigin="anonymous">
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href="assets/font/font-awesome.min.css">
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href="assets/font/font-awesome.css">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="assets/images/logo/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        @font-face {
+            font-family: Marvelous-Script-Demo;
+            font-display: swap;
+            src: url("..\\assets\\font\\Marvelous-Script-Demo.otf");
+        }
+
+        .logo-text {
+            font-family: Marvelous-Script-Demo;
+            font-size: 320%;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            color: #ffc602;
+            font-display: swap;
+        }
+
+        * {
+            font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            font-display: swap;
+        }
+    </style>
+    <script async src="https://use.fontawesome.com/449fc92c63.js"></script>
+    <!-- Vendor Styles-->
+    <link rel="stylesheet preload" as="style" media="screen" href="assets/css/simplebar.min.css">
+    <link rel="stylesheet preload" as="style" media="screen" href="assets/css/tiny-slider.css">
+    <link rel="stylesheet preload" as="style" media="screen" href="assets/css/lightgallery.min.css">
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet preload" as="style" media="screen" href="assets/css/theme.min.css">
+    <script async src="assets/js/run_prettify.js?lang=py&amp;skin=sunburst"></script>
+    <!-- Google analytics -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <!-- Global site tag (gtag.js) - Google Ads: 942098851 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-942098851"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-942098851');
+    </script>
+    <!-- Event snippet for Website traffic conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-942098851/xQJACJqMsO0BEKOTncED'
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173927461-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-173927461-1');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MWL6PRR');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script defer="defer" src="assets/js/lucky.js"></script>
+    <script defer="defer" src="assets/js/app.js"></script>
+    <link href="assets/css/app.css" rel="stylesheet">
+</head>
+<!-- Body-->
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWL6PRR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+      <!-- Global site tag (gtag) - Google Ads: 942098851 --> <amp-analytics type="gtag" data-credentials="include"> <script type="application/json"> { "vars": { "gtag_id": "AW-942098851", "config": { "AW-942098851": { "groups": "default" } } }, "triggers": { "C_JVmPciA7KpY": { "on": "visible", "vars": { "event_name": "conversion", "send_to": ["AW-942098851/xQJACJqMsO0BEKOTncED"] } }} } </script> </amp-analytics>
+    <!-- Page loading spinner-->
+    <div class="theme--red" id="app">
+        <div class="main">
+            <div class="control-group"><button class="icon-button icon-button--small" id="fullscreen-button">
+                    <!--?xml version="1.0" encoding="utf-8"?--> <svg version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 40 40" style="enable-background:new 0 0 40 40" xml:space="preserve"
+                        fill="currentcolor">
+                        <g id="fullscreen-icon">
+                            <g>
+                                <path d="M8.3,5H1.7C0.7,5,0,5.7,0,6.7v6.7C0,14.3,0.7,15,1.7,15c0.9,0,1.7-0.7,1.7-1.7v-5h5c0.9,0,1.7-0.7,1.7-1.7
+    S9.3,5,8.3,5z"></path>
+                                <path d="M40,13.3V6.7C40,5.7,39.3,5,38.3,5h-6.7C30.7,5,30,5.7,30,6.7c0,0.9,0.7,1.7,1.7,1.7h5v5
+    c0,0.9,0.7,1.7,1.7,1.7S40,14.3,40,13.3z"></path>
+                                <path d="M31.7,35h6.7c0.9,0,1.7-0.7,1.7-1.7v-6.7c0-0.9-0.7-1.7-1.7-1.7c-0.9,0-1.7,0.7-1.7,1.7v5h-5
+    c-0.9,0-1.7,0.7-1.7,1.7S30.7,35,31.7,35z"></path>
+                                <path d="M0,26.7v6.7C0,34.3,0.7,35,1.7,35h6.7c0.9,0,1.7-0.7,1.7-1.7c0-0.9-0.7-1.7-1.7-1.7h-5v-5
+    c0-0.9-0.7-1.7-1.7-1.7S0,25.7,0,26.7z"></path>
+                            </g>
+                        </g>
+                    </svg></button><button class="icon-button icon-button--small" id="settings-button">
+                    <!--?xml version="1.0" encoding="utf-8"?--> <svg version="1.1" id="Layer_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 40 40" style="enable-background:new 0 0 40 40" xml:space="preserve"
+                        fill="currentcolor">
+                        <g id="setting-icon">
+                            <path d="M6.7,13.3c3.1,0,5.7-2.1,6.5-5h25.2c0.9,0,1.7-0.7,1.7-1.7C40,5.7,39.3,5,38.3,5H13.1c-0.7-2.9-3.4-5-6.5-5
+C3,0,0,3,0,6.7S3,13.3,6.7,13.3z M6.7,3.3c1.8,0,3.3,1.5,3.3,3.3S8.5,10,6.7,10S3.3,8.5,3.3,6.7S4.8,3.3,6.7,3.3z"></path>
+                            <path d="M33.3,26.7c-3.1,0-5.7,2.1-6.5,5H1.7c-0.9,0-1.7,0.7-1.7,1.7S0.7,35,1.7,35h25.2c0.7,2.9,3.4,5,6.5,5
+c3.7,0,6.7-3,6.7-6.7S37,26.7,33.3,26.7z M33.3,36.7c-1.8,0-3.3-1.5-3.3-3.3c0-1.8,1.5-3.3,3.3-3.3c1.8,0,3.3,1.5,3.3,3.3
+C36.7,35.2,35.2,36.7,33.3,36.7z"></path>
+                            <path d="M38.3,18.3H26.5c-0.7-2.9-3.4-5-6.5-5s-5.7,2.1-6.5,5H1.7C0.7,18.3,0,19.1,0,20c0,0.9,0.7,1.7,1.7,1.7h11.9
+c0.7,2.9,3.4,5,6.5,5s5.7-2.1,6.5-5h11.9c0.9,0,1.7-0.7,1.7-1.7S39.3,18.3,38.3,18.3z M20,23.3c-1.8,0-3.3-1.5-3.3-3.3
+s1.5-3.3,3.3-3.3s3.3,1.5,3.3,3.3S21.8,23.3,20,23.3z"></path>
+                        </g>
+                    </svg></button></div><canvas class="confetti" id="confetti-canvas"></canvas>
+            <div id="lucky-draw"><img class="title" src="assets/images/svg/title.svg" alt="Lucky Draw">
+                <div class="slot">
+                    <div class="slot__outer">
+                        <div class="slot__inner">
+                            <div class="slot__shadow"></div>
+                            <div class="reel" id="reel"></div>
+                        </div>
+                    </div>
+                    <div class="sunburst" id="sunburst"><img src="assets/images/svg/sunburst.svg"
+                            alt="sunburst"></div>
+                </div><button class="solid-button" id="draw-button">Draw</button>
+            </div>
+            <div class="settings" id="settings" style="display: none;">
+                <div class="settings__panel" id="settings-panel">
+                    <div class="settings__panel__group">
+                        <h1 class="settings__title text-light">Settings</h1>
+                        <div class="input-group"><label class="input-label text-light" for="name-list">Name List</label><textarea
+                                class="input-field input-field--textarea" rows="8"
+                                placeholder="Separate each name by line break" id="name-list"></textarea></div>
+                        <div class="input-group input-group--2-column"><label class="input-label text-light"
+                                for="remove-from-list">Remove winner from list</label><label
+                                class="input--switch"><input type="checkbox" checked="true" id="remove-from-list"><span
+                                    class="slider"></span></label></div>
+                        <div class="input-group input-group--2-column"><label class="input-label text-light"
+                                for="enable-sound">Enable sound effect</label><label class="input--switch"><input
+                                    type="checkbox" checked="true" id="enable-sound"><span
+                                    class="slider"></span></label></div>
+                    </div>
+                    <div class="settings__panel__group"><button class="solid-button solid-button"
+                            id="settings-save">Save</button><button class="solid-button solid-button--danger"
+                            id="settings-close">Discard and close</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="font-size-sm mb-0">
+                <span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span>
+                <a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener noreferrer">Aditya Karnik</a>
+                 . 
+                <a class="nav-link-style nav-link-light" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener noreferrer">☕️ Buy Me a coffee</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
