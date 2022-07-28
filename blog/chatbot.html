@@ -205,7 +205,7 @@
                 <img class="lazyload d-none d-lg-block" width="153" src="../assets/images/logo-dark.png" alt="aditya karnik">
                 <img class="d-lg-none" width="58" src="../assets/images/logo-icon.png" alt="aditya karnik">
                 <div class="d-flex align-items-center order-lg-3 ml-lg-auto">
-                    <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+                    <a class="btn btn-primary ml-grid-gutter d-none d-lg-inline-block" href="https://github.com/adityaskarnik" target="_blank" rel="noopener noreferrer">
                     <i class="fa fa-github" aria-hidden="true"></i> View <span class="d-none d-lg-inline">Profile</span>
                     </a>
                 </div>
@@ -265,12 +265,12 @@
                     <p class="py-1 font-size-lg mb-4 pb-2">What are we going to use:</p>
                     <ol>
                         <li>Rasa Framework</li>
-                        <li><a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">Chatroom.js component</a> a little bit of addition</li>
+                        <li><a target="_blank" rel="noopener noreferrer" href="https://github.com/scalableminds/chatroom">Chatroom.js component</a> a little bit of addition</li>
                     </ol>
                     <p class="py-1 font-size-lg mb-4 pb-2">What we need - Prerequisites: </p>
                     <ol>
                         <li>Python - Obviously. This tutorial uses Python-3.7, you can use any other version of your choice.</li>
-                        <li>HTML - A basic html page of your choice. <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">You can use my html page, if you don't already have one.</a> This one already has Chatroom in it, which I will be later explaining.</li>
+                        <li>HTML - A basic html page of your choice. <a target="_blank" rel="noopener noreferrer" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">You can use my html page, if you don't already have one.</a> This one already has Chatroom in it, which I will be later explaining.</li>
                         <li>Package - <code style="font-family: Ubuntu;">Virtualenv</code> - This is always recommended when working on multiple version of packages as it should not break your python project already setup for another version.</li>
                     </ol>
                     <p class="py-1 font-size-lg mb-4 pb-2">Without wasting anymore time, lets dive in.</p>
@@ -286,12 +286,12 @@
                 <div class="col-lg-9 py-4 mb-2 mb-sm-0 pb-sm-5">
                     <h5>Introduction</h5>
                     <p class="py-1 font-size-lg mb-4 pb-2">You might feel the need to get in touch with your users more quickly or say, you need to provide best customer service, automating responses. Your reasons can be different but to achieve this with less efforts, you need the right tool.</p>
-                    <p class="py-1 font-size-lg mb-4 pb-2">Heres a report from <a target="_blank" rel="noopener" href="https://drift.com/">Drift</a> which show what are the most targeted application of ChatBots</p>
+                    <p class="py-1 font-size-lg mb-4 pb-2">Heres a report from <a target="_blank" rel="noopener noreferrer" href="https://drift.com/">Drift</a> which show what are the most targeted application of ChatBots</p>
                     <img class="rounded" src="../assets/images/chatbots-report-use-cases.jpeg"/>
-                    <p class="py-1 font-size-lg mt-5 mb-4 pb-2">To achieve this, there are multiple providers which can give you the same result. In the tutorial we will be using <a target="_blank" rel="noopener" href="https://rasa.com/">Rasa</a>. As Rasa is an open source framework and with a great support community, it stands strong.</p>
+                    <p class="py-1 font-size-lg mt-5 mb-4 pb-2">To achieve this, there are multiple providers which can give you the same result. In the tutorial we will be using <a target="_blank" rel="noopener noreferrer" href="https://rasa.com/">Rasa</a>. As Rasa is an open source framework and with a great support community, it stands strong.</p>
                     <p class="py-1 font-size-lg mt-5 mb-4 pb-2">Let us quickly setup Rasa.</p>
                     <h5>Installation</h5>
-                    <p>Considering you have python, pip already installed follow these steps. If you do not have python installed, <a target="_blank" rel="noopener" href="https://www.python.org/downloads/">Visit here download and install it.</a></p>
+                    <p>Considering you have python, pip already installed follow these steps. If you do not have python installed, <a target="_blank" rel="noopener noreferrer" href="https://www.python.org/downloads/">Visit here download and install it.</a></p>
                     <p>First setup virtual environment:</p>
                     <code class="row cs-sidebar col-lg-9 py-3 mb-2 mb-sm-3 pb-sm-3 rounded" style="font-family: Ubuntu;">virtualenv venv</code>
                     <p>Next, activate virtual environment:</p>
@@ -399,8 +399,8 @@ def run(self, dispatcher: CollectingDispatcher,
                     </ol>
                     <h5>Chat UI</h5>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Now that your chat api is exposed and open for messages, lets get to the last part to display the chat window and interact with Rasa server.</p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">For this you need to get a copy of the Chatroom.js and Chatroom.css from the creator's <a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">GitHub page</a>.</p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Also you need an HTML page where you will embed the Chatroom to configure it and connect to your Rasa Server. Grab a copy for the file <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">here</a>.<br>Now lets understand what have we got here and what you might need to modify.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">For this you need to get a copy of the Chatroom.js and Chatroom.css from the creator's <a target="_blank" rel="noopener noreferrer" href="https://github.com/scalableminds/chatroom">GitHub page</a>.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Also you need an HTML page where you will embed the Chatroom to configure it and connect to your Rasa Server. Grab a copy for the file <a target="_blank" rel="noopener noreferrer" href="https://github.com/adityaskarnik/chatbot/blob/master/home.html">here</a>.<br>Now lets understand what have we got here and what you might need to modify.</p>
                     <pre class="prettyprint linenums"><code>&lt;html>
     &lt;head>
             &lt;script type="text/javascript" src="assets/jquery-1.10.0.min.js">&lt;/script>
@@ -461,12 +461,12 @@ def run(self, dispatcher: CollectingDispatcher,
                         <li>Line #42 This is an extra functionality added to start sending message on your behalf to your rasa server. The response to this message will be your actual response from the server, with a API call.</li>
                     </ol>
                     <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">CONGRATULATION!! With this we complete the Rasa ChatBot working and you have your own assistant.</p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">If you wish to get the Source Code of this tutorial. <a target="_blank" rel="noopener" href="https://github.com/adityaskarnik/chatbot/archive/master.zip">Click here</a></p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Make the most of this and <a target="_blank" rel="noopener" href="#">let me know</a> in case if you have any issues. Also let me know your feedback <a href="/survey" target="_blank" rel="noopener">here</a></p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">If you wish to get the Source Code of this tutorial. <a target="_blank" rel="noopener noreferrer" href="https://github.com/adityaskarnik/chatbot/archive/master.zip">Click here</a></p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">Make the most of this and <a target="_blank" rel="noopener noreferrer" href="#">let me know</a> in case if you have any issues. Also let me know your feedback <a href="/survey" target="_blank" rel="noopener noreferrer">here</a></p>
                     <h5>Credits</h5>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">The restaurants database used in the ChatBot is the idea of <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/ahmed-aqib">Aqib Ahmed</a>.</p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2"><a target="_blank" rel="noopener" href="https://rasa.com/docs/rasa/http-api">Rasa's Reference Documentations will give you more details</a></p>
-                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">The ChatUI is possible with the help of <a target="_blank" rel="noopener" href="https://github.com/scalableminds/chatroom">Chatroom.js</a></p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">The restaurants database used in the ChatBot is the idea of <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ahmed-aqib">Aqib Ahmed</a>.</p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2"><a target="_blank" rel="noopener noreferrer" href="https://rasa.com/docs/rasa/http-api">Rasa's Reference Documentations will give you more details</a></p>
+                    <p class="py-1 font-size-lg mb-4 mt-4 pt-2 pb-2">The ChatUI is possible with the help of <a target="_blank" rel="noopener noreferrer" href="https://github.com/scalableminds/chatroom">Chatroom.js</a></p>
                 </div>
             </div>
         </div>
@@ -475,19 +475,19 @@ def run(self, dispatcher: CollectingDispatcher,
         <div class="container pt-3 pt-md-0">
           <div class="row pb-3">
             <div class="col-md-4 mt-n2 pb-3 pb-md-0 mb-4"><a class="d-block mb-3" href="/" style="width: 153px;"><img class="lazyload" src="../assets/images/logo.png" alt="adityakarnik"></a>
-              <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener">
+              <a class="social-btn sb-outline sb-twitter sb-light sb-lg mr-2 mb-2" href="https://linkedin.com/in/adityaskarnik" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-linkedin" aria-hidden="true"></i>
               </a>
-              <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="https://github.com/adityaskarnik" target="_blank" rel="noopener">
+              <a class="social-btn sb-outline sb-instagram sb-light sb-lg mr-2 mb-2" href="https://github.com/adityaskarnik" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-github" aria-hidden="true"></i>
               </a>
-              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener">
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://twitter.com/aditya_karnik" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-twitter" aria-hidden="true"></i>
               </a>
-              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://instagram.com/adityakarnik" target="_blank" rel="noopener">
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="https://instagram.com/adityakarnik" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-instagram" aria-hidden="true"></i>
               </a>
-              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:me@adityakarnik.com" target="_blank" rel="noopener">
+              <a class="social-btn sb-outline sb-google sb-light sb-lg mr-2 mb-2" href="mailto:me@adityakarnik.com" target="_blank" rel="noopener noreferrer">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
               </a>
             </div>
@@ -497,13 +497,13 @@ def run(self, dispatcher: CollectingDispatcher,
           <div class="row align-items-center my-3 pt-4">
             <div class="col-md-6 order-md-2 text-md-right mb-3">
               <ul class="list-inline font-size-sm mb-0">
-                  <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/contact" target="_blank" rel="noopener">Contact</a></li>
-                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener">Donate</a></li>
-                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/survey" target="_blank" rel="noopener">Survey</a></li>
+                  <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/contact" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZJM97M6KBLHZY" target="_blank" rel="noopener noreferrer">Donate</a></li>
+                <li class="list-inline-item"><a class="nav-link-style nav-link-light" href="/survey" target="_blank" rel="noopener noreferrer">Survey</a></li>
               </ul>
             </div>
             <div class="col-md-6 order-md-1 mb-3">
-              <p class="font-size-sm mb-0"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener">Aditya Karnik</a></p>
+              <p class="font-size-sm mb-0"><span class="text-light opacity-50 mr-1">© All rights reserved. Made by</span><a class="nav-link-style nav-link-light" href="https://adityakarnik.com/" target="_blank" rel="noopener noreferrer">Aditya Karnik</a></p>
             </div>
           </div>
         </div>
