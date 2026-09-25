@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Karnik - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Ubuntu', Arial, sans-serif;
+            color: #e9e9f2;
+            line-height: 1.4;
+            margin: 0;
+            padding: 30px 20px;
+            background-color: #37384e;
+        }
+        main {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 30px 34px;
+            background-color: #37384e;
+        }
+        .print-toolbar {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 18px;
+        }
+        .print-button {
+            border: 1px solid #766df4;
+            border-radius: 4px;
+            padding: 8px 12px;
+            color: #ffffff;
+            background: transparent;
+            font: inherit;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .print-button:hover,
+        .print-button:focus-visible {
+            color: #37384e;
+            background: #766df4;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 26px;
+            color: #ffffff;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e9e9f2;
+            margin: 0 0 10px 0;
+        }
+        .contact {
+            font-size: 13px;
+            color: #9e9fb4;
+        }
+        .contact a {
+            color: #6a9bf4;
+            text-decoration: none;
+        }
+        h2 {
+            font-size: 15px;
+            color: #ffffff;
+            text-transform: uppercase;
+            border-bottom: 2px solid #766df4;
+            padding-bottom: 3px;
+            margin: 20px 0 10px 0;
+            letter-spacing: 0.5px;
+        }
+        p, li {
+            font-size: 13px;
+            text-align: left;
+        }
+        ul {
+            margin: 5px 0 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 12px;
+            margin-bottom: 4px;
+            font-size: 13.5px;
+        }
+        .job-title {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .job-date {
+            flex: 0 0 auto;
+            text-align: right;
+            color: #9e9fb4;
+            font-style: italic;
+        }
+        .credential-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .credential {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 2px 0;
+            font-size: 13px;
+        }
+        .credential-date {
+            flex: 0 0 100px;
+            color: #9e9fb4;
+            text-align: right;
+        }
+        /* Skills Layout */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+        .skills-table td {
+            padding: 4px 0;
+            vertical-align: top;
+            font-size: 13px;
+        }
+        .skills-category {
+            font-weight: bold;
+            width: 22%;
+            color: #e9e9f2;
+        }
+        @media print {
+            @page {
+                margin: 15mm;
+            }
+            body {
+                padding: 0;
+                background-color: #ffffff;
+                color: #333333;
+            }
+            main {
+                padding: 0;
+                background-color: #ffffff;
+            }
+            h1,
+            h2,
+            .job-title {
+                color: #111111;
+            }
+            .subtitle,
+            .skills-category {
+                color: #555555;
+            }
+            .contact,
+            .job-date,
+            .credential-date {
+                color: #666666;
+            }
+            .contact a {
+                color: #333333;
+            }
+            h2 {
+                border-bottom-color: #333333;
+            }
+            .print-toolbar {
+                display: none;
+            }
+            .job-header,
+            .credential {
+                break-inside: avoid;
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 14px;
+            }
+            main {
+                padding: 22px 18px;
+            }
+            .competencies-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .job-header,
+            .credential {
+                display: block;
+            }
+            .job-date,
+            .credential-date {
+                margin-top: 2px;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="print-toolbar">
+        <button class="print-button" type="button" onclick="window.print()">Download PDF</button>
+    </div>
+    <header class="header">
+        <h1>ADITYA KARNIK</h1>
+        <div class="subtitle">Lead - Technology</div>
+        <div class="contact">
+            Pune, India | <a href="mailto:aditya.s.karnik@gmail.com">aditya.s.karnik@gmail.com</a><br>
+            AI & Emerging Technologies | <a href="https://www.linkedin.com/in/adityaskarnik/">LinkedIn</a> | <a href="https://github.com/adityaskarnik/">GitHub</a> | <a href="https://adityakarnik.com/">Personal Blog</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p>
+            Highly accomplished and self-motivated Software Professional and Technical Lead with 10 years of track record of excellence in designing, architecting, and delivering robust full-stack solutions and AI integrations. Adept at navigating ambiguity in high-stakes environments, leading rapid prototyping initiatives, and mentoring cross-functional engineering teams to drive engineering excellence. Expert in the Python ecosystem (Django, Flask, FastAPI, PySpark), Data Architecture (SQL/NoSQL optimization), and modern cloud/container deployment models. Proven capability to align frontier technologies with business strategy, make agile technical decisions, and build next-generation workflows, making me an ideal fit for high-impact incubation and Horizon-3 emerging technology initiatives.
+        </p>
+    </section>
+
+    <section>
+    <h2>Core Competencies</h2>
+    <div class="competencies-grid">
+        <ul>
+            <li><strong>Architect & Deliver:</strong> End-to-End System Design, Rapid Prototyping, Scalable Frameworks, Web Services & API Design.</li>
+            <li><strong>Data Architecture:</strong> Database Schema Design & Optimization, High-Volume ETL Architecture, Distributed Computing.</li>
+            <li><strong>Agility & Influence:</strong> Navigating Ambiguity, Stakeholder Collaboration, Use Case Translation, Technical Documentation.</li>
+        </ul>
+        <ul>
+            <li><strong>Spearhead AI R&D:</strong> Chatbot Integration (Rasa API), Machine Learning Foundations, Next-Gen AI-Assisted Workflows.</li>
+            <li><strong>Engineering Excellence:</strong> Team Management & Mentorship, Code Governance, Pull Request Evaluations, Tech Standards.</li>
+            <li><strong>DevOps & Virtualization:</strong> Docker Containerization, Kubernetes Deployment, Cloud Infrastructure Management.</li>
+        </ul>
+    </div>
+    </section>
+
+    <section>
+    <h2>Technical Skills</h2>
+    <table class="skills-table">
+        <tr>
+            <td class="skills-category">Languages</td>
+            <td>Python, JavaScript, HTML, CSS, SQL</td>
+        </tr>
+        <tr>
+            <td class="skills-category">Frameworks & Libs</td>
+            <td>Django, Flask, FastAPI, PySpark, Pandas, NumPy, Selenium, RESTful APIs, <strong>Azure OpenAI, Azure AI Search</strong></td>
+        </tr>
+        <tr>
+            <td class="skills-category">Data Architecture</td>
+            <td>PostgreSQL, Oracle DB, MongoDB, ETL Pipeline Design, Query Optimization</td>
+        </tr>
+        <tr>
+            <td class="skills-category">Cloud & DevOps</td>
+            <td>Amazon AWS (EC2, Lambda, IAM, Boto), <strong>Microsoft Azure (Azure AI Studio, Azure AI Search)</strong>, Docker, Kubernetes (Hands-on), Git, ELK Stack</td>
+        </tr>
+        <tr>
+            <td class="skills-category">Emerging Tech & AI</td>
+            <td><strong>Retrieval-Augmented Generation (RAG), Token-aware Chunking, Vector Indexing</strong>, Rasa AI Chatbots, AI-Assisted Development, Computer Vision/OCR (Tesseract, Python OCR)</td>
+        </tr>
+    </table>
+    </section>
+
+    <section>
+    <h2>Professional Experience</h2>
+
+    <div class="job-header">
+        <div class="job-title">Lead - Synechron Technologies</div>
+        <div class="job-date">Oct 2023 - Present | Pune, India</div>
+    </div>
+    <ul>
+        <li><strong>GenAI Incubation:</strong> Architected and implemented a proof-of-concept Retrieval-Augmented Generation (RAG) solution on Microsoft Azure using Azure OpenAI, Azure AI Search, and Python to generate context-aware responses from enterprise documents.</li>
+        <li><strong>AI Data Pipeline:</strong> Engineered end-to-end workflows for document preprocessing, token-aware chunking, embedding generation, and vector indexing; leveraged Azure AI Studio to deploy OpenAI GPT models and validate document-grounded conversational AI workflows.</li>
+        <li><strong>Architect & Deliver:</strong> Developed a high-stakes, end-to-end distributed ETL pipeline in PySpark/Python to ingest ~70 GB of daily market data (JSON) into an Oracle database, completing delivery in 5 weeks under tight deadlines.</li>
+        <li><strong>Performance Architecture:</strong> Designed a robust FastAPI architecture and optimized performance-critical SQL queries with complex joins, enabling sub-second single-record retrieval from a ~50 Terabyte data volume.</li>
+        <li><strong>Next-Gen Workflow:</strong> Conceptualized and built an internal automated framework that empowered non-technical stakeholders to configure outputs (Email, Excel, CSV, PDF) without writing code, substantially reducing End User Computing (EUC) friction.</li>
+        <li><strong>Engineering Excellence:</strong> Managed a cross-functional team of 8 software developers; led daily Scrum calls, oversaw task delegation, reviewed pull requests, and maintained strict code governance through regular code evaluations.</li>
+        <li><strong>Influence & Mentor:</strong> Conducted training and mentoring sessions to upskill developers on project workflows and standards; authored comprehensive Confluence documentation and technical guides, earning three distinct corporate awards for technical delivery and peer collaboration.</li>
+    </ul>
+
+    <div class="job-header">
+        <div class="job-title">Senior Software Engineer - Colt Technologies</div>
+        <div class="job-date">Sep 2019 - Oct 2023 | Bengaluru, India</div>
+    </div>
+    <ul>
+        <li><strong>Scalable Web Solutions:</strong> Developed and owned a Django-based enterprise web portal to automate tariff requests and customer onboarding, successfully building and scaling the platform to support a user base of over 600 active profiles.</li>
+        <li><strong>Process Automation:</strong> Replaced disjointed email communication with a streamlined form system featuring real-time tracking, automated notifications, and Docker containerization; reduced a repetitive monthly reconciliation workflow down to just 15 minutes while improving audit transparency.</li>
+        <li><strong>AI Integration R&D:</strong> Spearheaded AI experimentation within web services by architecting and integrating intelligent Chatbots using the Rasa API.</li>
+        <li><strong>Data Architecture:</strong> Evaluated functional requirements and solution architecture for more than 10 large-scale ETL projects, resolving underlying data issues and optimizing database schemas to prevent business operation disruptions.</li>
+        <li><strong>Governance & Onboarding:</strong> Established code review guidelines and delivered targeted training sessions to introduce incoming programmers to company standards; produced thorough technical documentation to simplify knowledge transfer.</li>
+    </ul>
+
+    <div class="job-header">
+        <div class="job-title">Senior Software Developer - Cocoslabs Innovative Solution</div>
+        <div class="job-date">Jul 2016 - Sep 2019 | Bengaluru, India</div>
+    </div>
+    <ul>
+        <li><strong>Rapid Prototyping:</strong> Excelled in fast-paced startup development cycles, participating in full-stack engineering tasks from project inception to production deployment using Python-Flask, Django, and JavaScript, meeting 100% of deadlines.</li>
+        <li><strong>Database & Infrastructure:</strong> Formulated and optimized relational schemas in PostgreSQL and managed CRUD operations with unstructured data in MongoDB using flask-mongoengine; integrated ELK Stack for centralized log monitoring.</li>
+        <li><strong>Cloud Architecture:</strong> Managed cloud infrastructure on AWS, leveraging EC2 instances, configuring IAM permissions, and automating system workflows with serverless Lambda and Boto scripts.</li>
+        <li><strong>Emerging Tech Prototyping:</strong> Pioneered an innovative cow-identification system for insurance claims utilizing unique nose signature comparisons via Python OCR libraries, eliminating traditional tag fraud.</li>
+        <li><strong>Cross-Platform Development:</strong> Transitioned into mobile development to design and architect the "My Safe Society App," leading the deployment of over 10 Android applications tailored for rapid incident reporting (fires, water loss, accidents).</li>
+    </ul>
+    </section>
+
+    <section>
+    <h2>Certifications</h2>
+    <ul class="credential-list">
+        <li class="credential"><span><strong>RAG in Azure with OpenAI and ChatGPT LLM</strong> - Udemy</span><span class="credential-date">July 2026</span></li>
+        <li class="credential"><span><strong>Artificial Intelligence Foundations: Machine Learning</strong> - LinkedIn Learning</span><span class="credential-date">Feb 2022</span></li>
+        <li class="credential"><span><strong>Business Writing Principles</strong> - LinkedIn Learning</span><span class="credential-date">Nov 2020</span></li>
+        <li class="credential"><span><strong>Python for Data Science and AI</strong> - Coursera</span><span class="credential-date">Apr 2020</span></li>
+        <li class="credential"><span><strong>Project in DevOps - Build Real World Processes</strong> - Udemy</span><span class="credential-date">Oct 2018</span></li>
+    </ul>
+    </section>
+
+    <section>
+    <h2>Education</h2>
+    <ul class="credential-list">
+        <li class="credential"><span><strong>Master of Computer Applications (MCA)</strong> - JSPM Narhe Technical Campus</span><span class="credential-date">2016</span></li>
+        <li class="credential"><span><strong>Bachelor of Computer Science (BCS)</strong> - Gokhale Education Society</span><span class="credential-date">2013</span></li>
+    </ul>
+    </section>
+
+    </main>
+</body>
+</html>
+
