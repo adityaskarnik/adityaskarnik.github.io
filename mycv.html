@@ -130,60 +130,97 @@
             color: #9e9fb4;
             text-align: right;
         }
-        /* Skills Layout */
-        .skills-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 5px;
+        .skills-list {
+            margin: 5px 0 0;
         }
-        .skills-table td {
+        .skills-list div {
+            display: grid;
+            grid-template-columns: 22% 1fr;
+            gap: 8px;
             padding: 4px 0;
-            vertical-align: top;
             font-size: 13px;
+        }
+        .skills-list dd {
+            margin: 0;
         }
         .skills-category {
             font-weight: bold;
-            width: 22%;
             color: #e9e9f2;
         }
         @media print {
             @page {
+                size: A4;
                 margin: 15mm;
             }
             body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 10.5pt;
+                line-height: 1.3;
                 padding: 0;
                 background-color: #ffffff;
-                color: #333333;
-            }
-            main {
-                padding: 0;
-                background-color: #ffffff;
-            }
-            h1,
-            h2,
-            .job-title {
                 color: #111111;
             }
-            .subtitle,
-            .skills-category {
-                color: #555555;
+            main {
+                max-width: none;
+                padding: 0;
+                background-color: #ffffff;
             }
-            .contact,
-            .job-date,
-            .credential-date {
-                color: #666666;
+            .header {
+                text-align: left;
             }
-            .contact a {
-                color: #333333;
+            h1 {
+                color: #111111;
+                font-size: 20pt;
             }
             h2 {
-                border-bottom-color: #333333;
+                color: #111111;
+                border-bottom-color: #111111;
+                font-size: 12pt;
+                text-transform: none;
+            }
+            h1 {
+                text-transform: none;
+                letter-spacing: 0;
+            }
+            .subtitle,
+            .skills-category,
+            .job-title,
+            .job-date,
+            .credential-date,
+            .contact,
+            .contact a {
+                color: #111111;
+            }
+            .competencies-grid {
+                display: block;
+            }
+            .skills-list div,
+            .job-header {
+                display: block;
+            }
+            .credential {
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+            }
+            .job-date {
+                text-align: left;
+                font-style: normal;
+            }
+            .credential-date {
+                flex: 0 0 auto;
+                white-space: nowrap;
+                text-align: right;
+                font-style: normal;
+            }
+            .skills-list div {
+                padding: 2px 0;
             }
             .print-toolbar {
                 display: none;
             }
             .job-header,
-            .credential {
+            li {
                 break-inside: avoid;
             }
         }
@@ -228,7 +265,7 @@
     <section>
         <h2>Professional Summary</h2>
         <p>
-            Highly accomplished and self-motivated Software Professional and Technical Lead with 10 years of track record of excellence in designing, architecting, and delivering robust full-stack solutions and AI integrations. Adept at navigating ambiguity in high-stakes environments, leading rapid prototyping initiatives, and mentoring cross-functional engineering teams to drive engineering excellence. Expert in the Python ecosystem (Django, Flask, FastAPI, PySpark), Data Architecture (SQL/NoSQL optimization), and modern cloud/container deployment models. Proven capability to align frontier technologies with business strategy, make agile technical decisions, and build next-generation workflows, making me an ideal fit for high-impact incubation and Horizon-3 emerging technology initiatives.
+            Technology Lead with 10+ years of experience designing, architecting, and delivering full-stack solutions and AI integrations. Skilled at operating in ambiguous, high-stakes environments, leading rapid prototyping efforts, and mentoring cross-functional engineering teams. Deep expertise across the Python ecosystem (Django, Flask, FastAPI, PySpark), data architecture (SQL/NoSQL optimization), and cloud/container deployment. Experienced in aligning emerging technologies with business strategy and turning them into production-ready workflows.
         </p>
     </section>
 
@@ -236,42 +273,27 @@
     <h2>Core Competencies</h2>
     <div class="competencies-grid">
         <ul>
-            <li><strong>Architect & Deliver:</strong> End-to-End System Design, Rapid Prototyping, Scalable Frameworks, Web Services & API Design.</li>
-            <li><strong>Data Architecture:</strong> Database Schema Design & Optimization, High-Volume ETL Architecture, Distributed Computing.</li>
-            <li><strong>Agility & Influence:</strong> Navigating Ambiguity, Stakeholder Collaboration, Use Case Translation, Technical Documentation.</li>
+            <li><strong>Architect & Deliver:</strong> End-to-end system design, rapid prototyping, scalable frameworks, and API design.</li>
+            <li><strong>Data Architecture:</strong> Database schema design and optimization, high-volume ETL architecture, distributed computing.</li>
+            <li><strong>Agility & Influence:</strong> Operating in ambiguity, stakeholder collaboration, use-case translation, technical documentation.</li>
         </ul>
         <ul>
-            <li><strong>Spearhead AI R&D:</strong> Chatbot Integration (Rasa API), Machine Learning Foundations, Next-Gen AI-Assisted Workflows.</li>
-            <li><strong>Engineering Excellence:</strong> Team Management & Mentorship, Code Governance, Pull Request Evaluations, Tech Standards.</li>
-            <li><strong>DevOps & Virtualization:</strong> Docker Containerization, Kubernetes Deployment, Cloud Infrastructure Management.</li>
+            <li><strong>AI R&D:</strong> Chatbot integration (Rasa API), machine learning foundations, AI-assisted workflow design.</li>
+            <li><strong>Engineering Excellence:</strong> Team management and mentorship, code governance, pull request review, technical standards.</li>
+            <li><strong>DevOps & Virtualization:</strong> Docker containerization, Kubernetes deployment, cloud infrastructure management.</li>
         </ul>
     </div>
     </section>
 
     <section>
     <h2>Technical Skills</h2>
-    <table class="skills-table">
-        <tr>
-            <td class="skills-category">Languages</td>
-            <td>Python, JavaScript, HTML, CSS, SQL</td>
-        </tr>
-        <tr>
-            <td class="skills-category">Frameworks & Libs</td>
-            <td>Django, Flask, FastAPI, PySpark, Pandas, NumPy, Selenium, RESTful APIs, <strong>Azure OpenAI, Azure AI Search</strong></td>
-        </tr>
-        <tr>
-            <td class="skills-category">Data Architecture</td>
-            <td>PostgreSQL, Oracle DB, MongoDB, ETL Pipeline Design, Query Optimization</td>
-        </tr>
-        <tr>
-            <td class="skills-category">Cloud & DevOps</td>
-            <td>Amazon AWS (EC2, Lambda, IAM, Boto), <strong>Microsoft Azure (Azure AI Studio, Azure AI Search)</strong>, Docker, Kubernetes (Hands-on), Git, ELK Stack</td>
-        </tr>
-        <tr>
-            <td class="skills-category">Emerging Tech & AI</td>
-            <td><strong>Retrieval-Augmented Generation (RAG), Token-aware Chunking, Vector Indexing</strong>, Rasa AI Chatbots, AI-Assisted Development, Computer Vision/OCR (Tesseract, Python OCR)</td>
-        </tr>
-    </table>
+    <dl class="skills-list">
+        <div><dt class="skills-category">Languages</dt><dd>Python, JavaScript, HTML, CSS, SQL</dd></div>
+        <div><dt class="skills-category">Frameworks and Libraries</dt><dd>Django, Flask, FastAPI, PySpark, Pandas, NumPy, Selenium, RESTful APIs, Azure OpenAI, Azure AI Search</dd></div>
+        <div><dt class="skills-category">Data Architecture</dt><dd>PostgreSQL, Oracle DB, MongoDB, ETL Pipeline Design, Query Optimization</dd></div>
+        <div><dt class="skills-category">Cloud and DevOps</dt><dd>Amazon AWS (EC2, Lambda, IAM, Boto), Microsoft Azure (Azure AI Studio, Azure AI Search), Docker, Kubernetes (Hands-on), Git, ELK Stack</dd></div>
+        <div><dt class="skills-category">Emerging Technology and AI</dt><dd>Retrieval-Augmented Generation (RAG), Token-aware Chunking, Vector Indexing, Rasa AI Chatbots, AI-Assisted Development, Computer Vision/OCR (Tesseract, Python OCR)</dd></div>
+    </dl>
     </section>
 
     <section>
@@ -282,13 +304,13 @@
         <div class="job-date">Oct 2023 - Present | Pune, India</div>
     </div>
     <ul>
-        <li><strong>GenAI Incubation:</strong> Architected and implemented a proof-of-concept Retrieval-Augmented Generation (RAG) solution on Microsoft Azure using Azure OpenAI, Azure AI Search, and Python to generate context-aware responses from enterprise documents.</li>
-        <li><strong>AI Data Pipeline:</strong> Engineered end-to-end workflows for document preprocessing, token-aware chunking, embedding generation, and vector indexing; leveraged Azure AI Studio to deploy OpenAI GPT models and validate document-grounded conversational AI workflows.</li>
-        <li><strong>Architect & Deliver:</strong> Developed a high-stakes, end-to-end distributed ETL pipeline in PySpark/Python to ingest ~70 GB of daily market data (JSON) into an Oracle database, completing delivery in 5 weeks under tight deadlines.</li>
-        <li><strong>Performance Architecture:</strong> Designed a robust FastAPI architecture and optimized performance-critical SQL queries with complex joins, enabling sub-second single-record retrieval from a ~50 Terabyte data volume.</li>
-        <li><strong>Next-Gen Workflow:</strong> Conceptualized and built an internal automated framework that empowered non-technical stakeholders to configure outputs (Email, Excel, CSV, PDF) without writing code, substantially reducing End User Computing (EUC) friction.</li>
-        <li><strong>Engineering Excellence:</strong> Managed a cross-functional team of 8 software developers; led daily Scrum calls, oversaw task delegation, reviewed pull requests, and maintained strict code governance through regular code evaluations.</li>
-        <li><strong>Influence & Mentor:</strong> Conducted training and mentoring sessions to upskill developers on project workflows and standards; authored comprehensive Confluence documentation and technical guides, earning three distinct corporate awards for technical delivery and peer collaboration.</li>
+        <li><strong>GenAI Incubation:</strong> Architected and built a proof-of-concept Retrieval-Augmented Generation (RAG) solution on Microsoft Azure using Azure OpenAI, Azure AI Search, and Python to generate context-aware responses from enterprise documents.</li>
+        <li><strong>AI Data Pipeline:</strong> Built end-to-end workflows for document preprocessing, token-aware chunking, embedding generation, and vector indexing; used Azure AI Studio to deploy OpenAI GPT models and validate document-grounded conversational AI.</li>
+        <li><strong>Architect & Deliver:</strong> Built a distributed ETL pipeline in PySpark and Python to ingest ~70 GB of daily market data (JSON) into an Oracle database, delivering the project in 5 weeks under tight deadlines.</li>
+        <li><strong>Performance Architecture:</strong> Designed a FastAPI-based service and optimized performance-critical SQL queries with complex joins, enabling sub-second single-record retrieval from a ~50 TB dataset.</li>
+        <li><strong>Next-Gen Workflow:</strong> Built an internal framework that let non-technical stakeholders configure outputs (email, Excel, CSV, PDF) without writing code, reducing End User Computing (EUC) overhead.</li>
+        <li><strong>Engineering Excellence:</strong> Led a cross-functional team of 8 developers; ran daily standups, delegated tasks, reviewed pull requests, and enforced code quality through regular reviews.</li>
+        <li><strong>Influence & Mentor:</strong> Trained and mentored developers on project workflows and standards; authored Confluence documentation and technical guides, earning three internal awards for delivery and collaboration.</li>
     </ul>
 
     <div class="job-header">
@@ -296,11 +318,11 @@
         <div class="job-date">Sep 2019 - Oct 2023 | Bengaluru, India</div>
     </div>
     <ul>
-        <li><strong>Scalable Web Solutions:</strong> Developed and owned a Django-based enterprise web portal to automate tariff requests and customer onboarding, successfully building and scaling the platform to support a user base of over 600 active profiles.</li>
-        <li><strong>Process Automation:</strong> Replaced disjointed email communication with a streamlined form system featuring real-time tracking, automated notifications, and Docker containerization; reduced a repetitive monthly reconciliation workflow down to just 15 minutes while improving audit transparency.</li>
-        <li><strong>AI Integration R&D:</strong> Spearheaded AI experimentation within web services by architecting and integrating intelligent Chatbots using the Rasa API.</li>
-        <li><strong>Data Architecture:</strong> Evaluated functional requirements and solution architecture for more than 10 large-scale ETL projects, resolving underlying data issues and optimizing database schemas to prevent business operation disruptions.</li>
-        <li><strong>Governance & Onboarding:</strong> Established code review guidelines and delivered targeted training sessions to introduce incoming programmers to company standards; produced thorough technical documentation to simplify knowledge transfer.</li>
+        <li><strong>Scalable Web Solutions:</strong> Built and owned a Django-based web portal to automate tariff requests and customer onboarding, scaling it to support 600+ active users.</li>
+        <li><strong>Process Automation:</strong> Replaced email-based communication with a tracked form system featuring automated notifications and Docker containerization; cut a monthly reconciliation workflow down to 15 minutes while improving audit transparency.</li>
+        <li><strong>AI Integration R&D:</strong> Prototyped chatbot integrations within web services using the Rasa API.</li>
+        <li><strong>Data Architecture:</strong> Reviewed requirements and solution architecture for 10+ large-scale ETL projects, resolving data issues and optimizing database schemas to prevent operational disruptions.</li>
+        <li><strong>Governance & Onboarding:</strong> Set code review guidelines and trained incoming developers on company standards; wrote technical documentation to streamline knowledge transfer.</li>
     </ul>
 
     <div class="job-header">
@@ -308,11 +330,11 @@
         <div class="job-date">Jul 2016 - Sep 2019 | Bengaluru, India</div>
     </div>
     <ul>
-        <li><strong>Rapid Prototyping:</strong> Excelled in fast-paced startup development cycles, participating in full-stack engineering tasks from project inception to production deployment using Python-Flask, Django, and JavaScript, meeting 100% of deadlines.</li>
-        <li><strong>Database & Infrastructure:</strong> Formulated and optimized relational schemas in PostgreSQL and managed CRUD operations with unstructured data in MongoDB using flask-mongoengine; integrated ELK Stack for centralized log monitoring.</li>
-        <li><strong>Cloud Architecture:</strong> Managed cloud infrastructure on AWS, leveraging EC2 instances, configuring IAM permissions, and automating system workflows with serverless Lambda and Boto scripts.</li>
-        <li><strong>Emerging Tech Prototyping:</strong> Pioneered an innovative cow-identification system for insurance claims utilizing unique nose signature comparisons via Python OCR libraries, eliminating traditional tag fraud.</li>
-        <li><strong>Cross-Platform Development:</strong> Transitioned into mobile development to design and architect the "My Safe Society App," leading the deployment of over 10 Android applications tailored for rapid incident reporting (fires, water loss, accidents).</li>
+        <li><strong>Rapid Prototyping:</strong> Delivered full-stack features end-to-end, from design to production deployment, using Flask, Django, and JavaScript in a fast-paced startup environment, consistently meeting deadlines.</li>
+        <li><strong>Database & Infrastructure:</strong> Designed and optimized relational schemas in PostgreSQL and managed unstructured data in MongoDB using flask-mongoengine; integrated the ELK stack for centralized log monitoring.</li>
+        <li><strong>Cloud Architecture:</strong> Managed AWS infrastructure, including EC2 instances and IAM permissions, and automated workflows with serverless Lambda and Boto scripts.</li>
+        <li><strong>Emerging Tech Prototyping:</strong> Built a nose-print identification system for cattle insurance claims using Python OCR libraries, replacing fraud-prone ear tags.</li>
+        <li><strong>Cross-Platform Development:</strong> Moved into mobile development to design and build the "My Safe Society" app, shipping 10+ Android applications for rapid incident reporting (fire, water damage, accidents).</li>
     </ul>
     </section>
 
